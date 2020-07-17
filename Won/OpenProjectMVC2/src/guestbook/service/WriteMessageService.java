@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import guestbook.dao.MessageDao;
-import guestbook.jdbc.ConnectionProvider;
 import guestbook.model.Message;
+import jdbc.ConnectionProvider;
 
 public class WriteMessageService {
 	

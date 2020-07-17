@@ -6,9 +6,9 @@ import java.util.Collections;
 import java.util.List;
 
 import guestbook.dao.MessageDao;
-import guestbook.jdbc.ConnectionProvider;
 import guestbook.model.Message;
 import guestbook.model.MessageListView;
+import jdbc.ConnectionProvider;
 
 public class GetMessageListService {
 	

@@ -16,7 +16,7 @@ MemberDao dao;
 			HttpServletResponse response) {
 		
 		
-		return "/WEB-INF/views/guestbook/list.jsp";
+		return "/WEB-INF/views/guest/list.jsp";
 	}
 
 }

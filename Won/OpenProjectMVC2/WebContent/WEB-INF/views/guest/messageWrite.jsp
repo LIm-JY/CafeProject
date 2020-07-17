@@ -15,6 +15,7 @@
 	request.setAttribute("writeResult", result);
 %>
 
+${result }
 <jsp:forward page="messageWrite_view.jsp"/>
 
 

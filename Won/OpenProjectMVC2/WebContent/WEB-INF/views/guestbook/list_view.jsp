@@ -17,7 +17,8 @@
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 
 	<div>
-		비회원 게시판
+<%@ include file="/WEB-INF/views/guest/list.jsp" %>
+
 	</div>
 
 	<%@ include file="/WEB-INF/views/include/footer.jsp" %>

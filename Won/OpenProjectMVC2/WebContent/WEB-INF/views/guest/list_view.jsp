@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/css/default.css">
 <style>
 	table td {
 		padding:10px;
@@ -33,11 +34,14 @@
 	
 	
 }
-	
+
+
 </style>
 </head>
 <body>
-	<div class="container">
+
+	<%@ include file="/WEB-INF/views/include/header.jsp" %>
+
 	<h3>방명록 글쓰기</h3>
 	<hr>
 	
@@ -99,9 +103,10 @@
 	
 	
 	
+		<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 	
 	
-	</div>
+	
 	
 	
 </body>

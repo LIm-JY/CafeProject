@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.NullServiceImpl;
+import service.NullService;
 import service.Service;
 
 public class FrontController extends HttpServlet {
@@ -104,7 +104,7 @@ public class FrontController extends HttpServlet {
 		Service service = commands.get(type);
 
 		if (service == null) {
-			service = new NullServiceImpl();
+			service = new NullService();
 		}
 
 		String page = service.getViewPage(request, response);

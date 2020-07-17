@@ -12,6 +12,19 @@ public class MemberBoard01 {
 	private int viewcount; // 게시글 조회 수
 	private String filecontentaddr; // 첨부 파일 경로(Realpath).
 	
+	public MemberBoard01(int idx, String userid, String userpw, Date regdate, String title, String content,
+			int viewcount, String filecontentaddr) {
+		super();
+		this.idx = idx;
+		this.userid = userid;
+		this.userpw = userpw;
+		this.regdate = regdate;
+		this.title = title;
+		this.content = content;
+		this.viewcount = viewcount;
+		this.filecontentaddr = filecontentaddr;
+	}
+	
 	// Getter & Setter
 	public int getIdx() {
 		return idx;

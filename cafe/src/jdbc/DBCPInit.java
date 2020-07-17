@@ -15,18 +15,18 @@ import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
 public class DBCPInit extends HttpServlet {
 	private final String DBTYPE = "mysql"; //  로드 할 DB Type.
-	private final String ORACLE_JDBC_DRIVER = "jdbc:oracle:thin:@address:1521:orcl";
-	private final String MYSQL_JDBC_DRIVER = "jdbc:mysql:// address /project?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
-	private final String ORACLE_ID = " account ";
-	private final String MYSQL_ID = " account ";
-	private final String PASSWD = " password ";
+	private final String ORACLE_JDBC_DRIVER = "jdbc:oracle:thin:@localhost:1521:orcl";
+	private final String MYSQL_JDBC_DRIVER = "jdbc:mysql://database-01.ckgtgjq54eva.ap-northeast-2.rds.amazonaws.com/project?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
+	private final String ORACLE_ID = "admin";
+	private final String MYSQL_ID = "admin";
+	private final String PASSWD = "bit*cafe";
 	
 	@Override
 	public void init() throws ServletException {
 		loadJdbcDriver();		// 데이터베이스 드라이버 로드
 		initConnectionPool();	// Pool 드라이버 로드(설정)
 	}
-	
+
 	private void loadJdbcDriver() {
 		try {
 			// 커넥션 풀이 내부에서 사용할 jdbc 드라이버를 로딩함.

@@ -3,8 +3,6 @@ package board.memberboard;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Collections;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -58,7 +56,7 @@ public class ArticleView implements Service {
 				article = dao.ViewArticle(conn, VIEW_ARTICLE_PAGE_PER_COUNT, startRow);
 			}else {
 				currentPageNum = 0;
-				article = (MemberBoard01) Collections.emptyList();
+				article = null;
 			}
 			
 			// 이어짐 - articleList에 게시물의 전체 숫자, 현재 보고 있는 페이지, 게시물

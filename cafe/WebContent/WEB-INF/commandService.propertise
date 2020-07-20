@@ -1,0 +1,44 @@
+#Command Propertise
+#uri=Class Full Name
+#/=service.IndexServiceImpl index.html
+/index.do=service.IndexServiceImpl
+# 회원 가입 페이지
+/member/memberRegForm.do=member.service.MemberRegFormServiceImpl
+# 회원 가입 처리
+/member/memberReg.do=member.service.MemberRegServiceImpl
+# 회원 가입시 아이디 체크
+/member/idCheck.do=member.service.IdCheckServiceImpl
+# 회원 리스트 출력 
+/member/memberList.do=member.service.MemberListServiceImpl
+#회원 삭제
+/member/memberDelete.do=member.service.MemberDeleteServiceImpl
+#회원 수정 폼
+/member/memberEditForm.do=member.service.MemberEditFormServiceImpl
+#회원 수정 
+/member/memberEdit.do=member.service.MemberEditServiceImpl
+
+#----------------------------------------------------------------------------------------------07/17추가
+#마이페이지
+/member/memberMypage.do=member.service.MemberMypageServiceImpl
+
+#방명록(비회원)
+/guestbook/guestBoard.do=member.service.GuestBoardServiceImpl
+
+#방명록(회원)
+/board/memberBoard.do=member.service.MemberBoardServiceImpl
+
+
+#로그인
+/member/memberLogin.do=member.service.MemberLoginServiceImpl
+#----------------------------------------------------------------------------------------------07/20추가
+#로그인 완료
+/member/memberLoginSuccess.do=member.service.MemberLoginSuccessServiceImpl
+
+#로그아웃
+/member/memberLogout.do=member.service.MemberLogoutServiceImpl
+
+#판매게시판
+/board/sellerBoard.do=member.service.SellerBoardServiceImpl
+
+#구매게시판
+/board/buyerBoard.do=member.service.BuyerBoardServiceImpl

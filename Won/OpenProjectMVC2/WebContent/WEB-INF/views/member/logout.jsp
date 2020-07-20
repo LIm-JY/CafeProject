@@ -9,10 +9,27 @@
 
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/include/header.jsp"%>
+    	<%@ include file="/WEB-INF/views/include/navigationTest.jsp" %>
+     
+  <div class="container-fluid">
+    <div class="row">
+     <!-- 3단길이의 첫번째 열 -->
+      <div class="col-md-2">
+     <%@ include file="/WEB-INF/views/include/header.jsp" %>
+      </div>
+      <!-- 9단길이의 첫번째 열 -->
+      <div class="col-md-10">
+	로그아웃 완료
+      </div>
+     </div>
 	
-	<h1>로그아웃 완료</h1>
-	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+	<!-- <div class="container">
+
+		index
+	</div> -->
+
+	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+
 
 </body>
 </html>

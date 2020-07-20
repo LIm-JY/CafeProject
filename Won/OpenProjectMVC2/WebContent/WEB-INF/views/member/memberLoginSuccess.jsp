@@ -28,8 +28,17 @@
 
 </head>
 <body>
-	<div>
-	<%@ include file="/WEB-INF/views/include/header.jsp"%>
+
+    	<%@ include file="/WEB-INF/views/include/navigationTest.jsp" %>
+     
+  <div class="container-fluid">
+    <div class="row">
+     <!-- 3단길이의 첫번째 열 -->
+      <div class="col-md-2">
+     <%@ include file="/WEB-INF/views/include/header.jsp" %>
+      </div>
+      <!-- 9단길이의 첫번째 열 -->
+      <div class="col-md-10">
 	<%
 	if(loginCheck){//loginCheck==true
 		session.setAttribute("info",new LoginInfo(uid,upw));//세션 생성
@@ -42,7 +51,20 @@
 	<hr>
 	<h1>로그인 실패</h1>
 	${listView.memberList}
-	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 <%} %>
+      </div>
+     </div>
+	
+	<!-- <div class="container">
+
+		index
+	</div> -->
+
+	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+
+
+
+	<div>
+
 </body>
 </html>

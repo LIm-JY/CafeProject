@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class BuyBoard {
+public class SellBoard {
 	private int idx; // 게시글 index(작성순번)
 	private String user_id; // 사용자 id(회원정보에서 가져와야 하며, 일치해야 함. Foreign Key)
 	private String title; // 게시글 제목
@@ -13,7 +13,7 @@ public class BuyBoard {
 	private String filecontentaddr; // 첨부 파일 경로(Realpath).
 	
 	// 생성자
-	public BuyBoard(int idx, String user_id, String title, String item_catagory, String content, Date reg_date,
+	public SellBoard(int idx, String user_id, String title, String item_catagory, String content, Date reg_date,
 			int viewcount, String filecontentaddr) {
 		this.idx = idx;
 		this.user_id = user_id;

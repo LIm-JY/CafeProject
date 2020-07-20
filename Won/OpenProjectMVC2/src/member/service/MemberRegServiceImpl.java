@@ -38,7 +38,11 @@ MemberDao dao;
 		String uid = null;
 		String upw = null;
 		String uname = null;
-		String uphoto = null;
+		String nickname = null;
+		String email = null;
+		String contact = null;
+		String address = null;
+		String photo = null;
 		
 		Connection conn = null;
 
@@ -73,6 +77,16 @@ MemberDao dao;
 							upw = paramValue;
 						} else if(paramName.equals("uname")) {
 							uname = paramValue;
+						}else if(paramName.equals("nickname")) {
+							nickname = paramValue;
+						}else if(paramName.equals("email")) {
+							email = paramValue;
+						}else if(paramName.equals("contact")) {
+							contact = paramValue;
+						}else if(paramName.equals("address")) {
+							address = paramValue;
+						}else if(paramName.equals("photo")) {
+							photo = paramValue;
 						}
 						
 					} else { // type=file
@@ -93,19 +107,22 @@ MemberDao dao;
 						item.write(saveFile);
 						System.out.println("저장 완료");
 						
-						uphoto = uri+"/"+newFileName;
+						photo = uri+"/"+newFileName;
 	
 					}
 	
 				}
 				
-				
 				// 데이터 베이스 저장 
 				Member member = new Member();
-				member.setUid(uid);
-				member.setUpw(upw);
-				member.setUname(uname);
-				member.setUphoto(uphoto);
+				member.setUserId(uid);
+				member.setUserPw(upw);
+				member.setUserName(uname);
+				member.setUserNickname(nickname);
+				member.setEmail(email);
+				member.setContactNumber(contact);
+				member.setAddress(address);
+				member.setPhoto(photo);
 				
 				conn = ConnectionProvider.getConnection();
 				
@@ -113,6 +130,8 @@ MemberDao dao;
 				
 				resultCnt = dao.insertMember(conn, member);
 				
+				
+				System.out.println("데이터베이스입력정보확인:"+member);
 				request.setAttribute("member", member);
 				request.setAttribute("result", resultCnt);
 				

@@ -1,6 +1,16 @@
+<%@page import="member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+Member member=(Member)request.getAttribute("member");
+int result=(int)request.getAttribute("result");
+
+if(member!=null && result>0){
+	session.setAttribute("member",member);
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +36,8 @@
 			<div>
 				회원가입 완료
 			</div>
+					<!-- request.setAttribute("member", member);
+				request.setAttribute("result", resultCnt); -->
 			${member}
 		</c:if>
 		

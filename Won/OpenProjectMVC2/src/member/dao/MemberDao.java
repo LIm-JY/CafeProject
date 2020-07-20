@@ -23,15 +23,19 @@ public class MemberDao {
 		int resultCnt = 0;
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO project.member (uid, upw, uname, uphoto ) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO project.member1 (user_id,user_pw,user_name,user_nickname,email,contact_number,address,photo ) VALUES (?,?,?,?,?,?,?,?)";
 
 		try {
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, member.getUid());
-			pstmt.setString(2, member.getUpw());
-			pstmt.setString(3, member.getUname());
-			pstmt.setString(4, member.getUphoto());
+			pstmt.setString(1, member.getUserId());
+			pstmt.setString(2, member.getUserPw());
+			pstmt.setString(3, member.getUserName());
+			pstmt.setString(4, member.getUserNickname());
+			pstmt.setString(5, member.getEmail());
+			pstmt.setString(6, member.getContactNumber());
+			pstmt.setString(7, member.getAddress());
+			pstmt.setString(8, member.getPhoto());
 
 			resultCnt = pstmt.executeUpdate();
 
@@ -52,7 +56,7 @@ public class MemberDao {
 		ResultSet rs;	
 		
 		try {
-			String sql = "select count(*) from project.member where uid=?";
+			String sql = "select count(*) from project.member1 where user_id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			
@@ -80,7 +84,7 @@ public class MemberDao {
 		try {
 			stmt = conn.createStatement();
 			
-			rs = stmt.executeQuery("select count(*) from project.member");
+			rs = stmt.executeQuery("select count(*) from project.member1");
 			
 			if(rs.next()) {
 				resultCnt = rs.getInt(1);
@@ -102,7 +106,7 @@ public class MemberDao {
 		
 		List<Member> memberList = new ArrayList<Member>();
 		
-		String sql = "select * from project.member order by uname limit ?, ?";
+		String sql = "select * from project.member1 order by user_name limit ?, ?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -114,10 +118,14 @@ public class MemberDao {
 			while(rs.next()) {
 				Member member = new Member();
 				member.setIdx(rs.getInt("idx"));
-				member.setUid(rs.getString("uid"));
-				member.setUpw(rs.getString("upw"));
-				member.setUname(rs.getString("uname"));
-				member.setUphoto(rs.getString("uphoto"));
+				member.setUserId(rs.getString("user_id"));
+				member.setUserPw(rs.getString("user_pw"));
+				member.setUserName(rs.getString("user_name"));
+				member.setUserNickname(rs.getString("user_nickname"));
+				member.setEmail(rs.getString("email"));
+				member.setContactNumber(rs.getString("contact_number"));
+				member.setAddress(rs.getString("address"));
+				member.setPhoto(rs.getString("photo"));
 				
 				memberList.add(member);
 			}
@@ -135,7 +143,7 @@ public class MemberDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = "delete from member where idx=?";
+		String sql = "delete from project.member1 where idx=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -160,7 +168,7 @@ public class MemberDao {
 		ResultSet rs;	
 		
 		try {
-			String sql = "select * from project.member where idx=?";
+			String sql = "select * from project.member1 where idx=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			
@@ -169,10 +177,14 @@ public class MemberDao {
 			if(rs.next()) {
 				member = new Member();
 				member.setIdx(rs.getInt("idx"));
-				member.setUid(rs.getString("uid"));
-				member.setUpw(rs.getString("upw"));
-				member.setUname(rs.getString("uname"));
-				member.setUphoto(rs.getString("uphoto"));
+				member.setUserId(rs.getString("user_id"));
+				member.setUserPw(rs.getString("user_pw"));
+				member.setUserName(rs.getString("user_name"));
+				member.setUserNickname(rs.getString("user_nickname"));
+				member.setEmail(rs.getString("email"));
+				member.setContactNumber(rs.getString("contact_number"));
+				member.setAddress(rs.getString("address"));
+				member.setPhoto(rs.getString("photo"));
 			}
 			
 		} finally {
@@ -190,14 +202,14 @@ public class MemberDao {
 		
 		PreparedStatement pstmt = null;
 		
-		String sql = "update project.member set "
-				   + " upw=?, uname=?, uphoto=? "
+		String sql = "update project.member1 set "
+				   + " user_pw=?, user_name=?, photo=? "
 				   + " where idx=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, member.getUpw());
-			pstmt.setString(2, member.getUname());
-			pstmt.setString(3, member.getUphoto());
+			pstmt.setString(1, member.getUserPw());
+			pstmt.setString(2, member.getUserName());
+			pstmt.setString(3, member.getPhoto());
 			pstmt.setInt(4, member.getIdx());
 			
 			result = pstmt.executeUpdate();

@@ -17,7 +17,7 @@
 #회원 수정 
 /member/memberEdit.do=member.service.MemberEditServiceImpl
 
-#----------------------------------------------------------------------------------------------추가
+#----------------------------------------------------------------------------------------------07/17추가
 #마이페이지
 /member/memberMypage.do=member.service.MemberMypageServiceImpl
 
@@ -30,3 +30,15 @@
 
 #로그인
 /member/memberLogin.do=member.service.MemberLoginServiceImpl
+#----------------------------------------------------------------------------------------------07/20추가
+#로그인 완료
+/member/memberLoginSuccess.do=member.service.MemberLoginSuccessServiceImpl
+
+#로그아웃
+/member/memberLogout.do=member.service.MemberLogoutServiceImpl
+
+#판매게시판
+/board/sellerBoard.do=member.service.SellerBoardServiceImpl
+
+#구매게시판
+/board/buyerBoard.do=member.service.BuyerBoardServiceImpl

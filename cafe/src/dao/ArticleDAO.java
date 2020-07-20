@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.MemberBoard01;
+import model.BuyBoard;
 
 public class ArticleDAO {
 	private ArticleDAO() {}
@@ -15,10 +15,10 @@ public class ArticleDAO {
 	public static ArticleDAO getDao() {
 		return dao;
 	}
-	public MemberBoard01 ViewArticle(Connection conn, int pagePerArticle, int startRow) {
+	public BuyBoard ViewArticle(Connection conn, int pagePerArticle, int startRow) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		MemberBoard01 article = null;
+		BuyBoard article = null;
 		String sql = "SELECT * FROM project.MemberBoard01";
 		
 		try {
@@ -29,7 +29,7 @@ public class ArticleDAO {
 			if (rs != null) {
 				// 쿼리문이 가지고 온 resultset의 값을 article에 대입하되.
 				while (rs.next()) {
-					article = new MemberBoard01(
+					article = new BuyBoard(
 							rs.getInt("idx"), 
 							rs.getString("userid"), 
 							rs.getString("userpw"), 

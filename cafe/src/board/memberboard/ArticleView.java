@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.ArticleDAO;
 import jdbc.ConnectionProvider;
 import model.ArticlePager;
-import model.MemberBoard01;
+import model.BuyBoard;
 import service.Service;
 
 public class ArticleView implements Service {
@@ -24,7 +24,7 @@ public class ArticleView implements Service {
 			// DAO사용을 위하여 호출.
 			ArticleDAO dao = ArticleDAO.getDao();
 			// 게시글을 담기 위하여 article 리스트를 생성.
-			MemberBoard01 article = null;
+			BuyBoard article = null;
 			// 게시물 전체 수를 구하기 위해서 dao에 계산을 요청하고 그 값을 totalArticleCount에 담음.
 			int totalArticleCount = dao.getTotalArticleCount(conn);
 			// 페이지당 보여 줄 게시물의 수(상수).

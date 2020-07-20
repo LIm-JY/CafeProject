@@ -14,7 +14,7 @@ public class ArticlePager {
 	// 페이지의 마지막 게시글 번호
 	private int endRow;
 	// 게시글의 내용.
-	private MemberBoard01 article;
+	private BuyBoard article;
 
 	// 디버깅용 toString
 	@Override
@@ -25,7 +25,7 @@ public class ArticlePager {
 	}
 
 	// 생성자 공식
-	public ArticlePager(int totalArticleCount, int currentPageNum, MemberBoard01 article, int showPagePerArticle,
+	public ArticlePager(int totalArticleCount, int currentPageNum, BuyBoard article, int showPagePerArticle,
 			int startRow) {
 		this.totalArticleCount = totalArticleCount;
 		this.currentPageNum = currentPageNum;
@@ -82,7 +82,7 @@ public class ArticlePager {
 		return endRow;
 	}
 
-	public MemberBoard01 getArticle() {
+	public BuyBoard getArticle() {
 		return article;
 	}
 }

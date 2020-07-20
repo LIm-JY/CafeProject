@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class MemberBoard01 {
+public class BuyBoard {
 	private int idx; // 게시글 index(작성순번)
 	private String userid; // 사용자 id(회원정보에서 가져와야 하며, 일치해야 함. Foreign Key)
 	private String userpw; // 사용자 pw(회원정보에서 가져와야 하며, 일치해야 함. Foreign Key)
@@ -12,9 +12,8 @@ public class MemberBoard01 {
 	private int viewcount; // 게시글 조회 수
 	private String filecontentaddr; // 첨부 파일 경로(Realpath).
 	
-	public MemberBoard01(int idx, String userid, String userpw, Date regdate, String title, String content,
+	public BuyBoard(int idx, String userid, String userpw, Date regdate, String title, String content,
 			int viewcount, String filecontentaddr) {
-		super();
 		this.idx = idx;
 		this.userid = userid;
 		this.userpw = userpw;

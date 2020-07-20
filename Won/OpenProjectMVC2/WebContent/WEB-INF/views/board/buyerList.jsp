@@ -37,7 +37,8 @@ s	<c:if test="${empty info}">
 			location.href('/index.do');
 		</script>
 	</c:if>
-
+			<%@ include file="/WEB-INF/views/board/list.jsp"%>
+		
       </div>
      </div>
 	

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import member.dao.MemberDao;
 import service.Service;
 
-public class BuyerBoardServiceImpl implements Service {
+public class BuyerBoardSucccessServiceImpl implements Service {
 
 MemberDao dao;
 	
@@ -78,7 +78,7 @@ MemberDao dao;
 //		
 //		
 //		request.setAttribute("listView", listView);
-		return "/WEB-INF/views/board/buyerList.jsp";
+		return "/WEB-INF/views/board/messageWrite.jsp";
 	}
 
 }

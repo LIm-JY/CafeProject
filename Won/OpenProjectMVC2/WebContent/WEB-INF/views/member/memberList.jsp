@@ -6,7 +6,6 @@
 <%
 	MemberListView listView=(MemberListView)request.getAttribute("listView");
 	request.setAttribute("listView", listView);
-
 %>
 <!DOCTYPE html>
 <html>

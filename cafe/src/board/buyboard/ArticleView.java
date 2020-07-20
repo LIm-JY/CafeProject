@@ -1,4 +1,4 @@
-package board.buyrboard;
+package board.buyboard;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -77,7 +77,7 @@ public class ArticleView implements Service {
 		// articleList 에 담아서
 		request.setAttribute("articleList", articleList);
 		// memberBoardView.jsp 페이지로 값을 전달한다.
-		return "/WEB-INF/view/memberboard/memberBoardView.jsp";
+		return "/WEB-INF/view/buyboard/buyBoardView.jsp";
 	}
 
 }

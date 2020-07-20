@@ -1,4 +1,4 @@
-package board.memberboard;
+package board.buyrboard;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -6,7 +6,7 @@ import java.util.Collections;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ArticleDAO;
+import dao.BuyboardDAO;
 import jdbc.ConnectionProvider;
 import model.ArticlePager;
 import model.BuyBoard;
@@ -22,7 +22,7 @@ public class ArticleView implements Service {
 		try {
 			conn = ConnectionProvider.getConnection();
 			// DAO사용을 위하여 호출.
-			ArticleDAO dao = ArticleDAO.getDao();
+			BuyboardDAO dao = BuyboardDAO.getDao();
 			// 게시글을 담기 위하여 article 리스트를 생성.
 			BuyBoard article = null;
 			// 게시물 전체 수를 구하기 위해서 dao에 계산을 요청하고 그 값을 totalArticleCount에 담음.

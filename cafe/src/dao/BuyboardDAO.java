@@ -9,17 +9,17 @@ import java.util.List;
 
 import model.BuyBoard;
 
-public class ArticleDAO {
-	private ArticleDAO() {}
-	private static ArticleDAO dao = new ArticleDAO();
-	public static ArticleDAO getDao() {
+public class BuyboardDAO {
+	private BuyboardDAO() {}
+	private static BuyboardDAO dao = new BuyboardDAO();
+	public static BuyboardDAO getDao() {
 		return dao;
 	}
 	public BuyBoard ViewArticle(Connection conn, int pagePerArticle, int startRow) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		BuyBoard article = null;
-		String sql = "SELECT * FROM project.MemberBoard01";
+		String sql = "SELECT * FROM project.buyboard";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -31,13 +31,14 @@ public class ArticleDAO {
 				while (rs.next()) {
 					article = new BuyBoard(
 							rs.getInt("idx"), 
-							rs.getString("userid"), 
-							rs.getString("userpw"), 
-							rs.getDate("regdate"), 
-							rs.getString("title"), 
-							rs.getString("content"), 
-							rs.getInt("viewcount"), 
-							rs.getString("filecontentaddr"));	
+							rs.getString("userid"),
+							rs.getString("title"),
+							rs.getString("item_catagory"),
+							rs.getString("content"),
+							rs.getDate("reg_date"),
+							rs.getInt("viewcount"),
+							rs.getString("filecontentaddr")
+						);	
 				}
 			}
 		} catch (SQLException e) {
@@ -71,7 +72,7 @@ public class ArticleDAO {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT COUNT(*) FROM project.MemberBoard01";
+		String sql = "SELECT COUNT(*) FROM project.buyboard";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

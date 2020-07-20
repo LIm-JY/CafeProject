@@ -42,6 +42,9 @@
 	<%
 	if(loginCheck){//loginCheck==true
 		session.setAttribute("info",new LoginInfo(uid,upw));//세션 생성
+		MemberListView listView=(MemberListView)request.getAttribute("listView");
+		session.setAttribute("listView",listView);//세션 생성
+
 	%>
 	<h1>반갑습니다 ${info.uid} 회원님</h1><hr>
 	<h1>로그인 완료</h1>

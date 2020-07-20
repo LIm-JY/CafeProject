@@ -81,6 +81,8 @@ MemberDao dao;
 		
 		
 		request.setAttribute("loginCheck",loginCheck);
+		
+		request.setAttribute("listView", listView);
 //		System.out.println("로그인정보확인:"+info);
 		
 		return result;

@@ -41,8 +41,8 @@ public class MemberMypageServiceImpl implements Service {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-		request.setAttribute("listView", listView);
+		System.out.println("회원정보확인:"+list);
+		request.setAttribute("list", list);
 		return "/WEB-INF/views/member/mypage/mypage.jsp";
 	}
 

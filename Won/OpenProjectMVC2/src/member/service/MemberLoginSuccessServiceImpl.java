@@ -58,7 +58,7 @@ MemberDao dao;
 						
 						loginCheck=true;
 						
-						result="/WEB-INF/views/member/memberLoginSuccess.jsp";
+						result="/loginSuccess.jsp";
 					}
 				}
 			}

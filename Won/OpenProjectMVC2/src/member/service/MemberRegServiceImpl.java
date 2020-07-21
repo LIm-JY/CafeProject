@@ -163,7 +163,7 @@ MemberDao dao;
 			
 		}
 		
-		return "/WEB-INF/views/member/reg.jsp";
+		return "/reg.jsp";
 	}
 
 }

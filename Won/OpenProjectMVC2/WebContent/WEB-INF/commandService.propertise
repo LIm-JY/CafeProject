@@ -2,6 +2,7 @@
 #uri=Class Full Name
 #/=service.IndexServiceImpl index.html
 /index.do=service.IndexServiceImpl
+/=service.IndexServiceImpl
 # 회원 가입 페이지
 /member/memberRegForm.do=member.service.MemberRegFormServiceImpl
 # 회원 가입 처리
@@ -17,9 +18,17 @@
 #회원 수정 
 /member/memberEdit.do=member.service.MemberEditServiceImpl
 
-#----------------------------------------------------------------------------------------------07/17추가
+#----------------------------------------------------------------------------------------------
 #마이페이지
 /member/memberMypage.do=member.service.MemberMypageServiceImpl
+
+#비밀번호 변경
+/member/memberMypageEditPw.do=member.service.MemberMypageEditPwServiceImpl
+
+#사진수정
+/member/memberMypageEditPhoto.do=member.service.MemberMypageEditPhotoServiceImpl
+#사진수정
+/member/memberMypageEditPhoto.do=member.service.MemberMypageEditPhotoServiceImpl
 
 #방명록(비회원)XXXXXXXXXXX
 /guestbook/guestBoard.do=member.service.GuestBoardServiceImpl
@@ -46,3 +55,8 @@
 /board/buyerBoard.do=member.service.BuyerBoardServiceImpl
 #구매글 작성완료
 /board/buyerBoard.do=member.service.BuyerBoardSuccessServiceImpl
+
+#----------------------------------------------------------------------------------------------07/21추가
+#임시
+/board/temp.do=member.service.TempImpl
+/board/tempService.do=member.service.TempServiceImpl

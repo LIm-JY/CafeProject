@@ -87,7 +87,7 @@ public class MemberListServiceImpl implements Service {
 		
 		request.setAttribute("listView", listView);
 		
-		return "/WEB-INF/views/member/memberList.jsp";
+		return "/list.jsp";
 	}
 
 }

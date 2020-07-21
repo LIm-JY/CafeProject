@@ -78,7 +78,7 @@ MemberDao dao;
 //		
 //		
 //		request.setAttribute("listView", listView);
-		return "/WEB-INF/views/board/buyerList.jsp";
+		return "/buy.jsp";
 	}
 
 }

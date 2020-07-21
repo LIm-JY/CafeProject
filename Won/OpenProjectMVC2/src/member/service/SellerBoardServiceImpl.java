@@ -86,7 +86,7 @@ MemberDao dao;
 		
 		request.setAttribute("listView", listView);
 		
-		return "/WEB-INF/views/board/sellerList.jsp";
+		return "/sell.jsp";
 	}
 
 }

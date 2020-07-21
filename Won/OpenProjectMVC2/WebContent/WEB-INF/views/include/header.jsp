@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+ <%@ page import="java.sql.*"%>
 <h1 id="header">Open Project</h1>
 
 <div class="panel panel-info">
@@ -31,6 +31,7 @@
   <ul class="list-group">
    <li class="list-group-item"><a href="<c:url value="/board/sellerBoard.do"/>">판매게시판</a></li>
    <li class="list-group-item"><a href="<c:url value="/board/buyerBoard.do"/>">구매게시판</a></li>
+   <li class="list-group-item"><a href="<c:url value="/board/temp.do"/>">게시판(임시)</a></li>
   </ul>
 </div>
 <!-- 

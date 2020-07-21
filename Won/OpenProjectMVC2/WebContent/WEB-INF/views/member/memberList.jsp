@@ -7,13 +7,8 @@
 	MemberListView listView=(MemberListView)request.getAttribute("listView");
 	request.setAttribute("listView", listView);
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
 <title>회원가입</title>
 
-<link rel="stylesheet" href="<c:url value="/css/default.css" />">
 
 <style>
 	td>img{
@@ -21,19 +16,6 @@
 		height : 50px;
 	}
 </style>
-</head>
-<body>
-
-<%@ include file="/WEB-INF/views/include/navigationTest.jsp" %>
-     
-  <div class="container-fluid">
-    <div class="row">
-     <!-- 3단길이의 첫번째 열 -->
-      <div class="col-md-2">
-     <%@ include file="/WEB-INF/views/include/header.jsp" %>
-      </div>
-      <!-- 9단길이의 첫번째 열 -->
-      <div class="col-md-10">
       <div>
 		<h1 class="subtitle">회원 리스트</h1>
 
@@ -98,22 +80,6 @@
 
 		</c:if>
 	</div>
-      </div>
-     </div>
-	
-	<!-- <div class="container">
-
-		index
-	</div> -->
-
-
-
-	
-
-	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
-</body>
-</html>
-
 
 <script>
 	function memberDel(idx){

@@ -1,37 +1,14 @@
-<%@page import="member.model.MemberListView"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html lang="ko">
+<meta charset="utf-8">
 
-<%
-MemberListView listView=(MemberListView)request.getAttribute("listView");
 
-%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>로그인</title>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/default.css">
-
-</head>
-<body>
-    	<%@ include file="/WEB-INF/views/include/navigationTest.jsp" %>
-     
-  <div class="container-fluid">
-    <div class="row">
-     <!-- 3단길이의 첫번째 열 -->
-      <div class="col-md-2">
-     <%@ include file="/WEB-INF/views/include/header.jsp" %>
-      </div>
-      <!-- 9단길이의 첫번째 열 -->
-      <div class="col-md-10">
 	<%
 		if (session.getAttribute("uid") == null) { //세션이 설정되지 않을 경우
 	
 	%>
-<%-- 	<form method="post" action="<%=request.getContextPath()%>/WEB-INF/views/member/loginCheck.jsp">
- --%>	<form method="post" action="memberLoginSuccess.do"> 
+	<form method="post" action="memberLoginSuccess.do"> 
 	<table>
 	<tr>
 	<td><label for="uid">아이디</label></td>
@@ -42,12 +19,43 @@ MemberListView listView=(MemberListView)request.getAttribute("listView");
 	<td><input type="password" name="upw" id="upw" placeholder="비밀번호" required></td>
 	</tr>
 	<tr>
-	<td><input type="submit" value="로그인"></td>
-	<td><input type="reset" value="초기화"></td>
+	<td></td>
+	<td><input type="submit" value="로그인"><input type="reset" value="초기화"></td>
 	</tr>
 	
 	</table>
-	
+	</form>
+	<script type="text/javascript">
+        // 웹 플랫폼 도메인 등 초기화한 앱의 설정이 그대로 적용됩니다.
+        // 초기화한 앱에 현재 도메인이 등록되지 않은 경우 에러가 발생합니다.
+        Kakao.init('99700abe71de0064c0d0c5702931b834');
+        function loginWithKakao() {
+            // 로그인 창을 띄웁니다.
+            Kakao.Auth.login({
+                success: function(authObj) {
+                    alert(JSON.stringify(authObj));
+
+                    //Kakao.Auth.setAccessToken(authObj.access_token);
+
+                    startWithKakao();
+
+
+                },
+                fail: function(err) {
+                    alert(JSON.stringify(err));
+                }
+            });
+        };
+        function startWithKakao() {
+            Kakao.Auth.getStatusInfo(function(statusObj) {
+                if (statusObj.status == 'connected') {
+                    console.log('connection OK');
+                } else {
+                    $('#custom-login-btn').css('display', 'inline');
+                }
+            });
+        };
+       </script>
 		
 		
 	</form>
@@ -62,20 +70,5 @@ MemberListView listView=(MemberListView)request.getAttribute("listView");
 		}
 	%>
 
-      </div>
-     </div>
-<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 	
-	<!-- <div class="container">
-
-		index
-	</div> -->
-
-	
-
-
-</body>
-</html>
-
-
 

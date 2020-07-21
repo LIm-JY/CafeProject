@@ -9,7 +9,6 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/default.css">
 
 <style>
 	.check_ok {
@@ -23,9 +22,6 @@
 	}
 </style>
 </head>
-<body>
-
-	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 
 	<div>
 		<h1 class="subtitle">회원 수정</h1>
@@ -65,9 +61,6 @@
 		</form>
 	</div>
 
-	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
-</body>
-</html>
 <script>
 	
 	$(document).ready(function(){

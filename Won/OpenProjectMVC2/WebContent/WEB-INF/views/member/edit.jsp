@@ -7,13 +7,6 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 
-<link rel="stylesheet" href="<c:url value="/css/default.css" />">
-
-<style>
-
-</style>
-</head>
-<body>
 
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 
@@ -38,9 +31,6 @@
 		</h3>
 	</div>
 
-	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
-</body>
-</html>
 
 
 

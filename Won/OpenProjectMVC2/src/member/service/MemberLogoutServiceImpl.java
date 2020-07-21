@@ -16,7 +16,7 @@ MemberDao dao;
 			HttpServletResponse response) {
 		
 		
-		return "/WEB-INF/views/member/logout.jsp";
+		return "logout.jsp";
 	}
 
 }

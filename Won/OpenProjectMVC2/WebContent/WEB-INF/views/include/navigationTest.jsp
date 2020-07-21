@@ -67,6 +67,8 @@
 	<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberList.do">방명록(회원제)</a></li>
 	</c:if>
 	<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberListPrint.do">회원목록</a></li>
+	   <li class="list-group-item"><a href="<c:url value="/board/temp.do"/>">게시판(임시)</a></li>
+	
 </ul>
 
 

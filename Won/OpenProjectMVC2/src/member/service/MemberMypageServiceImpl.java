@@ -43,7 +43,7 @@ public class MemberMypageServiceImpl implements Service {
 		}
 		System.out.println("회원정보확인:"+list);
 		request.setAttribute("list", list);
-		return "/WEB-INF/views/member/mypage/mypage.jsp";
+		return "/mypage.jsp";
 	}
 
 }

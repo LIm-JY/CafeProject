@@ -5,87 +5,67 @@ import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import board.dao.BuyerBoardDao;
 import board.model.Board;
 import board.model.BoardListView;
 import jdbc.ConnectionProvider;
+import service.Service;
 
-public class GetBoardListService {
+public class GetBoardListService implements Service {
 
-	private GetBoardListService() {
-	}
+	private BuyerBoardDao dao = BuyerBoardDao.getInstance();
+	List<Board> articles = null;
+	BoardListView sortedArticles = null;
+	
+	// 1페이지당 보여 줄 총 게시물의 숫자.
+	final int VIEW_PAGE_PER_COUNT = 10;
 
-	private static GetBoardListService service = new GetBoardListService();
-
-	public static GetBoardListService getInstance() {
-		return service;
-	}
-
-	private BuyerBoardDao dao;
-
-	// 한 페이지에 표현할 메시지의 개수
-	private final int Board_COUNT_PER_PAGE = 10;
-
-	public BoardListView getBoardList(int pageNumber) {
-
-		// 페이지 번호 -> 시작 행, 끝 행
-		// dao -> List
-
-		Connection conn = null;
-
-		BoardListView BoardListView = null;
-
+	@Override
+	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
+		int currentPageNumber = 1;
+		int startRow = 0, endRow = 0, articleTotalCount = 0;
+		
 		try {
-
-			conn = ConnectionProvider.getConnection();
-
-			dao = BuyerBoardDao.getInstance();
-
-			// 페이지의 전체 메시지 구하기
-			List<Board> BoardList = null;
-
-			// 전체 메시지의 게수
-			int BoardTotalCount = dao.selectTotalCount(conn);
-
-			int startRow = 0;
-			int endRow = 0;
-
-			if (BoardTotalCount > 0) {
-
-				// 시작 행, 마지막 행
-				startRow = (pageNumber - 1) * Board_COUNT_PER_PAGE + 1;
-				endRow = startRow + Board_COUNT_PER_PAGE - 1;
-
-				BoardList = dao.selectList(conn, startRow, endRow);
-
-			} else {
-				pageNumber = 0;
-				BoardList = Collections.emptyList();
-			}
-
-			BoardListView = new BoardListView(BoardTotalCount, pageNumber, BoardList, Board_COUNT_PER_PAGE, startRow,
-					endRow);
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-
-			if (conn != null) {
+			Connection conn = ConnectionProvider.getConnection();
+			articleTotalCount = dao.selectTotalCount(conn);
+			String nowPage = request.getParameter("page");
+			
+			if (nowPage != null) {
 				try {
-					conn.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
+					currentPageNumber = Integer.parseInt(nowPage);
+				} catch (NumberFormatException e) {
+					System.out.println("입력받은 문자열이 숫자타입으로 변환 할 수 있는 문자가 아닙니다.");
 					e.printStackTrace();
 				}
 			}
+			
+			
+			if (articleTotalCount > 0) {
+				startRow = (currentPageNumber-1 ) * VIEW_PAGE_PER_COUNT;
+				articles = dao.selectList(conn, startRow, VIEW_PAGE_PER_COUNT);
+			}else {
+				currentPageNumber = 0;
+				articles = Collections.emptyList();
+			}
+			
+			// 선택 된 게시물을들 BoardListView에 담아서
+			sortedArticles = 
+				new BoardListView(
+					articleTotalCount, 
+					currentPageNumber, 
+					articles, 
+					VIEW_PAGE_PER_COUNT, 
+					startRow, endRow);
 
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-
-		return BoardListView;
-
+		// articles로 담아서 view로 보낸다.
+		request.setAttribute("articles", sortedArticles);
+		return null;
 	}
 
 }

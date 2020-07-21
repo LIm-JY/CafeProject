@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import board.model.Board;
+import board.model.BoardListView;
 import member.model.Member;
 
 public class BuyerBoardDao {
@@ -27,7 +28,7 @@ public class BuyerBoardDao {
 
 		PreparedStatement pstmt = null;
 		String sql = 
-		"INSERT INTO project.buyer_board (user_id,title,item_category,content,view_count,file_content_addr) VALUES (?,?,?,?,?,?)";
+		"INSERT INTO project.buyboard (user_id,title,item_category,content,view_count,file_content_addr) VALUES (?,?,?,?,?,?)";
 
 		try {
 
@@ -59,7 +60,7 @@ public class BuyerBoardDao {
 		ResultSet rs;
 
 		try {
-			String sql = "select count(*) from project.buyer_board where user_id=?";
+			String sql = "select count(*) from project.buyboard where user_id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 
@@ -91,7 +92,7 @@ public class BuyerBoardDao {
 		try {
 			stmt = conn.createStatement();
 
-			rs = stmt.executeQuery("select count(*) from project.buyer_board");
+			rs = stmt.executeQuery("select count(*) from project.buyboard");
 
 			if (rs.next()) {
 				resultCnt = rs.getInt(1);
@@ -112,10 +113,9 @@ public class BuyerBoardDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		List<Board> BoardList = new ArrayList<Board>();
+		List<Board> articleList = new ArrayList<Board>();
 
-		String sql = "select * from project.buyer_board order by idx limit ?, ?";
-//		String sql = "select * from project.buyer_board order by user_name limit ?, ?";
+		String sql = "select * from project.buyboard order by idx limit ?, ?";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -134,23 +134,26 @@ public class BuyerBoardDao {
 				Board.setView_count(rs.getInt("view_count"));
 				Board.setFile_content_addr(rs.getString("file_content_addr"));
 
-				BoardList.add(Board);
+				articleList.add(Board);
 			}
 
 		} finally {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (rs != null) {
+				rs.close();
+			}
 		}
 
-		return BoardList;
+		return articleList;
 	}
 
 	public int BoardDelete(Connection conn, int idx) throws SQLException {
 
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = "delete from project.buyer_board where idx=?";
+		String sql = "delete from project.buyboard where idx=?";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -177,7 +180,7 @@ public class BuyerBoardDao {
 		ResultSet rs;
 
 		try {
-			String sql = "select * from project.buyer_board where idx=?";
+			String sql = "select * from project.buyboard where idx=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 
@@ -212,7 +215,7 @@ public class BuyerBoardDao {
 //		
 //		PreparedStatement pstmt = null;
 //		
-//		String sql = "update project.buyer_board set "
+//		String sql = "update project.buyboard set "
 //				   + " user_pw=?, user_name=?, photo=? "
 //				   + " where idx=?";
 //		try {

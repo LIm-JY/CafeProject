@@ -9,7 +9,7 @@ public class BoardListView {
 	// 현재 페이지 번호
 	private int currentPageNumber;
 	// 메시지 리스트
-	private List<Board> BoardList;
+	private List<Board> articleList;
 	// 전체 페이지의 개수
 	private int pageTotalCount;
 	// 페이지 당 표현 게시물의 개수
@@ -22,13 +22,13 @@ public class BoardListView {
 	public BoardListView(
 			int BoardTotalCount, 
 			int currentPageNumber, 
-			List<Board> BoardList,
+			List<Board> articleList,
 			int BoardCountPerpage, 
 			int startRow, 
 			int endRow) {
 		this.BoardTotalCount = BoardTotalCount;
 		this.currentPageNumber = currentPageNumber;
-		this.BoardList = BoardList;
+		this.articleList = articleList;
 		this.BoardCountPerpage = BoardCountPerpage;
 		this.startRow = startRow;
 		this.endRow = endRow;
@@ -58,8 +58,8 @@ public class BoardListView {
 		return currentPageNumber;
 	}
 
-	public List<Board> getBoardList() {
-		return BoardList;
+	public List<Board> getArticleList() {
+		return articleList;
 	}
 
 	public int getPageTotalCount() {
@@ -81,7 +81,7 @@ public class BoardListView {
 	@Override
 	public String toString() {
 		return "BoardListView [BoardTotalCount=" + BoardTotalCount + ", currentPageNumber=" + currentPageNumber
-				+ ", BoardList=" + BoardList + ", pageTotalCount=" + pageTotalCount + ", BoardCountPerpage="
+				+ ", articleList=" + articleList + ", pageTotalCount=" + pageTotalCount + ", BoardCountPerpage="
 				+ BoardCountPerpage + ", startRow=" + startRow + ", endRow=" + endRow + "]";
 	}
 	

@@ -16,33 +16,21 @@
 /member/memberEditForm.do=member.service.MemberEditFormServiceImpl
 #회원 수정 
 /member/memberEdit.do=member.service.MemberEditServiceImpl
-
 #----------------------------------------------------------------------------------------------07/17추가
 #마이페이지
 /member/memberMypage.do=member.service.MemberMypageServiceImpl
-
 #방명록(비회원)XXXXXXXXXXX
 /guestbook/guestBoard.do=member.service.GuestBoardServiceImpl
-
 #방명록(회원)XXXXXXXXXXXXX
 /board/memberBoard.do=member.service.MemberBoardServiceImpl
-
-
 #로그인
 /member/memberLogin.do=member.service.MemberLoginServiceImpl
-#----------------------------------------------------------------------------------------------07/20추가
 #로그인 완료
 /member/memberLoginSuccess.do=member.service.MemberLoginSuccessServiceImpl
-
 #로그아웃
 /member/memberLogout.do=member.service.MemberLogoutServiceImpl
-
+#----------------------------------------------------------------------------------------------07/21추가
 #판매게시판
-/board/sellerBoard.do=
-#판매글 작성완료
-/board/sellerBoardSuccess.do=member.service.SellerBoardSeccessServiceImpl
-
+/board/sellerBoard.do=board.service.SellBoardArticleViewService
 #구매게시판
-/board/buyerBoard.do=member.service.BuyerBoardServiceImpl
-#구매글 작성완료
-/board/buyerBoard.do=member.service.BuyerBoardSuccessServiceImpl
+#/board/buyerBoard.do=null

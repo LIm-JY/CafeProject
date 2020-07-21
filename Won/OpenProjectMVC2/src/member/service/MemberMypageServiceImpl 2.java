@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import member.dao.MemberDao;
 import service.Service;
 
-public class MemberBoardServiceImpl implements Service {
+public class MemberMypageServiceImpl implements Service {
 
 MemberDao dao;
 	
@@ -15,7 +15,8 @@ MemberDao dao;
 			HttpServletRequest request, 
 			HttpServletResponse response) {
 		
-		return "/WEB-INF/views/board/list.jsp";
+		
+		return "/WEB-INF/views/member/mypage/mypage.jsp";
 	}
 
 }

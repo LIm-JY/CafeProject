@@ -1,73 +1,113 @@
 package board.model;
 
+import java.sql.Date;
+
 public class Board {
-	private int idx;
-	private String userId;
-	private String title;
-	private String itemCategory;
-	private String content;
-	private String viewCount;
-	private String fileContentAddr;
 	
+	private int idx;
+	private String user_id;
+	private String title;
+	private String item_category;
+	private String content;
+	private Date reg_date;
+	private int view_count;
+	private String file_content_addr;
+	
+	// 기본 생성자
 	public Board() {}
+	
+	// 생성자(요소를 사용하여)
+	public Board(
+			int idx, 
+			String user_id, 
+			String title, 
+			String item_category, 
+			String content, 
+			Date reg_date,
+			int view_count, 
+			String file_content_addr) 
+	{
+		super();
+		this.idx = idx;
+		this.user_id = user_id;
+		this.title = title;
+		this.item_category = item_category;
+		this.content = content;
+		this.reg_date = reg_date;
+		this.view_count = view_count;
+		this.file_content_addr = file_content_addr;
+	}
+	
+	@Override
+	public String toString() {
+		return "Board [idx=" + idx + ", 아이디=" + user_id + ", 제목=" + title + ", 대분류=" + item_category
+				+ ", 내용=" + content + ", 작성일=" + reg_date + ", 조회수=" + view_count
+				+ ", 첨부파일경로=" + file_content_addr + "]";
+	}
+
 	public int getIdx() {
 		return idx;
 	}
+
 	public void setIdx(int idx) {
 		this.idx = idx;
 	}
-	public String getUserId() {
-		return userId;
+
+	public String getUser_id() {
+		return user_id;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getItemCategory() {
-		return itemCategory;
+
+	public String getItem_category() {
+		return item_category;
 	}
-	public void setItemCategory(String itemCategory) {
-		this.itemCategory = itemCategory;
+
+	public void setItem_category(String item_category) {
+		this.item_category = item_category;
 	}
+
 	public String getContent() {
 		return content;
 	}
+
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getViewCount() {
-		return viewCount;
+
+	public Date getReg_date() {
+		return reg_date;
 	}
-	public void setViewCount(String viewCount) {
-		this.viewCount = viewCount;
+
+	public void setReg_date(Date reg_date) {
+		this.reg_date = reg_date;
 	}
-	public String getFileContentAddr() {
-		return fileContentAddr;
+
+	public int getView_count() {
+		return view_count;
 	}
-	public void setFileContentAddr(String fileContentAddr) {
-		this.fileContentAddr = fileContentAddr;
+
+	public void setView_count(int view_count) {
+		this.view_count = view_count;
 	}
-	@Override
-	public String toString() {
-		return "Board [idx=" + idx + ", userId=" + userId + ", title=" + title + ", itemCategory=" + itemCategory
-				+ ", content=" + content + ", viewCount=" + viewCount + ", fileContentAddr=" + fileContentAddr + "]";
+
+	public String getFile_content_addr() {
+		return file_content_addr;
 	}
-	public Board(int idx, String userId, String title, String itemCategory, String content, String viewCount,
-			String fileContentAddr) {
-		super();
-		this.idx = idx;
-		this.userId = userId;
-		this.title = title;
-		this.itemCategory = itemCategory;
-		this.content = content;
-		this.viewCount = viewCount;
-		this.fileContentAddr = fileContentAddr;
+
+	public void setFile_content_addr(String file_content_addr) {
+		this.file_content_addr = file_content_addr;
 	}
-	
+		
 }
 

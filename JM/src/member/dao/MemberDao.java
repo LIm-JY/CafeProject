@@ -223,6 +223,45 @@ public class MemberDao {
 		return result;
 	}
 
+	public String findPasswordById(Connection conn, String uid) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String getPasswd = null;
+		String sql = "SELECT user_pw FROM project.member WHERE user_id=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if (rs != null) {
+				getPasswd = rs.getString(1);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("쿼리문 에러 발생하였습니다. 쿼리문을 확인하세요!");
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("기타 에러가 발생하였습니다. 로그를 확인해주세요.");
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (SQLException e) {
+				System.out.println("종료과정에서 SQL 에러가 발생하였습니다.");
+				e.printStackTrace();
+			} catch (Exception e) {
+				System.out.println("종료과정에서 기타 에러가 발생하였습니다.");
+				e.printStackTrace();
+			}
+		}
+		return getPasswd;
+	}
+
 	
 	
 	

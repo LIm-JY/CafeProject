@@ -3,50 +3,50 @@ package board.service;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import guestbook.dao.MessageDao;
-import guestbook.model.Message;
+import board.dao.BuyerBoardDao;
+import board.model.Board;
 import jdbc.ConnectionProvider;
+import member.dao.MemberDao;
+import member.model.Member;
 
 public class DeleteBoardService {
-	
-	private DeleteBoardService() {}
+
+	private DeleteBoardService() {
+	}
+
 	private static DeleteBoardService service = new DeleteBoardService();
+
 	public static DeleteBoardService getInstance() {
 		return service;
 	}
-	
-	MessageDao dao;
-	
-	public int deleteMessage(int mid, String pw) {
+
+	BuyerBoardDao boardDao;
+	MemberDao memberDao;
+
+	// 1. 게시글 idx를 받아옴.
+	// 2. 게시글의 사용자를 특정하여 그 사용자의 id와 비밀번호를 가지고 있음
+	// 3. 입력받은 비밀번호가 일치하는지 확인.
+	public int deleteArticle(int idx, String id, String pw) {
 		int resultCnt = 0;
-		
+		String getUid = null, getUpw = null;
 		Connection conn = null;
-		Message message = null;
-		
-		// 1. mid 의 미시지 존재 하는지 확인
-		// 2. 메시지가 존재 하면 객체의 pw 사용자가 입력한 pw 비교
-		// 3. 비교의 결과가 같다면 mid의 미시지를 삭제
-		
+		Board board = null;
+				
 		try {
 			conn = ConnectionProvider.getConnection();
-			dao = MessageDao.getInstance();
+			boardDao = BuyerBoardDao.getInstance();
 			
-			message = dao.selectMessage(conn, mid);
+			//삭제 요청받은 
+			board = boardDao.selectByIdx(conn, idx);
+			getUid = board.getUser_id();
+			getUpw = memberDao.findPasswordById(conn, getUid);
 			
-			if(message == null) {
-				resultCnt = -1;
-				throw new Exception("삭제 할 메시지가 존재하지 않음.");
+			if (getUpw != null && getUpw.equals(pw)) {
+				resultCnt = boardDao.BoardDelete(conn, idx);
+			}else {
+				resultCnt = 0;
 			}
 			
-			if(!message.getPw().equals(pw)) {
-				resultCnt = -2;
-				throw new Exception("비밀번호가 일치하지 않음.");
-			}
-			
-			// 삭제
-			resultCnt = dao.deleteMessage(conn, mid);
-			
-						
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,26 +65,7 @@ public class DeleteBoardService {
 			}
 			
 		}
-		
 		return resultCnt;
-		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

@@ -14,7 +14,7 @@ import board.model.BoardListView;
 import jdbc.ConnectionProvider;
 import service.Service;
 
-public class GetBoardListService implements Service {
+public class SellBoardArticleViewService implements Service {
 
 	private BuyerBoardDao dao = BuyerBoardDao.getInstance();
 	List<Board> articles = null;

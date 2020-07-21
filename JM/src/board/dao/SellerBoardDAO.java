@@ -12,14 +12,14 @@ import board.model.Board;
 import board.model.BoardListView;
 import member.model.Member;
 
-public class BuyerBoardDao {
+public class SellerBoardDAO {
 
-	private BuyerBoardDao() {
+	private SellerBoardDAO() {
 	}
 
-	private static BuyerBoardDao dao = new BuyerBoardDao();
+	private static SellerBoardDAO dao = new SellerBoardDAO();
 
-	public static BuyerBoardDao getInstance() {
+	public static SellerBoardDAO getInstance() {
 		return dao;
 	}
 

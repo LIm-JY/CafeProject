@@ -8,7 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import board.dao.BuyerBoardDao;
+import board.dao.SellerBoardDAO;
 import board.model.Board;
 import board.model.BoardListView;
 import jdbc.ConnectionProvider;
@@ -16,9 +16,10 @@ import service.Service;
 
 public class SellBoardArticleViewService implements Service {
 
-	private BuyerBoardDao dao = BuyerBoardDao.getInstance();
+	SellerBoardDAO dao = SellerBoardDAO.getInstance();
 	List<Board> articles = null;
 	BoardListView sortedArticles = null;
+	String viewTarget = "/WEB-INF/views/board/sellerList.jsp";
 	
 	// 1페이지당 보여 줄 총 게시물의 숫자.
 	final int VIEW_PAGE_PER_COUNT = 10;
@@ -65,7 +66,7 @@ public class SellBoardArticleViewService implements Service {
 		}
 		// articles로 담아서 view로 보낸다.
 		request.setAttribute("articles", sortedArticles);
-		return null;
+		return viewTarget;
 	}
 
 }

@@ -38,7 +38,7 @@ public class FrontController extends HttpServlet{
 		FileInputStream fis = null;
 		
 		// 설정파일의 웹 경로
-		String path = "/WEB-INF/commandService.propertise";
+		String path = "/WEB-INF/commandService.properties";
 		// 설정파일의 시스템 절대경로
 		String configFile = config.getServletContext().getRealPath(path);
 		
@@ -132,25 +132,12 @@ public class FrontController extends HttpServlet{
 			service = new NullServiceImpl();
 		}
 		
-
-//		if(type.equals("/greeting") ) {
-//			service = new GreetingServiceImpl();
-//		} else if(type.equals("/date")) {
-//			service = new DateServiceImpl();
-//		} else if(type.equals("/") || type.equals("/index") ) {
-//			service = new IndexServiceImpl();
-//		} else {
-//			service = new NullServiceImpl();
-//		}
-		
 		String page = service.getViewPage(request, response);
 		
 	
 		// 5. 포워딩
 		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
 		dispatcher.forward(request, response);
-		
-		
 	}
 
 

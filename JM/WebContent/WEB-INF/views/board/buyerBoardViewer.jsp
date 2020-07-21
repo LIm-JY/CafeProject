@@ -35,7 +35,6 @@
 				</c:if>
 				<c:if test="${!empty info}">
 					<h1>구매게시판</h1>
-					<%@ include file="/WEB-INF/views/board/list.jsp"%>
 				</c:if>
 			</div>
 		</div>

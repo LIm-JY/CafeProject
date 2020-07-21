@@ -202,15 +202,32 @@ public class MemberDao {
 		
 		PreparedStatement pstmt = null;
 		
-		String sql = "update project.member1 set "
-				   + " user_pw=?, user_name=?, photo=? "
-				   + " where idx=?";
+		String sql = "UPDATE project.member1 SET user_pw = ?,"
+				+ " user_name = ?, "
+				+ "user_nickname = ?, "
+				+ "email = ?, "
+				+ "contact_number = ?,"
+				+ "address = ?,"
+				+ "photo= ? "
+				+ "WHERE idx = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, member.getUserPw());
 			pstmt.setString(2, member.getUserName());
-			pstmt.setString(3, member.getPhoto());
-			pstmt.setInt(4, member.getIdx());
+			pstmt.setString(3, member.getUserNickname());
+			pstmt.setString(4, member.getEmail());
+			pstmt.setString(5, member.getContactNumber());
+			pstmt.setString(6, member.getAddress());
+			pstmt.setString(7, member.getPhoto());
+			pstmt.setInt(8, member.getIdx());
+			System.out.println(member.getUserPw());
+			System.out.println(member.getUserName());
+			System.out.println(member.getUserNickname());
+			System.out.println(member.getEmail());
+			System.out.println(member.getContactNumber());
+			System.out.println(member.getAddress());
+			System.out.println(member.getPhoto());
+			System.out.println(member.getIdx());
 			
 			result = pstmt.executeUpdate();
 			

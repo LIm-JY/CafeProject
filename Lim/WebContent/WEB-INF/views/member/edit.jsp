@@ -22,14 +22,14 @@
 		<hr>
 		<h3>
 		
-		<c:if test="${result gt 0 && member ne null}">
+		<c:if test="${result gt 0 && member1 ne null}">
 			<div>
 				회원수정 완료
 			</div>
-			${member}
+			${member1}
 		</c:if>
 		
-		<c:if test="${not (result gt 0 && member ne null)}">
+		<c:if test="${not (result gt 0 && member1 ne null)}">
 			회원수정 실패
 		</c:if>
 		

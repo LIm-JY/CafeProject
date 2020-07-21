@@ -129,9 +129,9 @@ MemberDao dao;
 				// 데이터 베이스 저장 
 				Member member = new Member();
 				member.setIdx(idx);
-				member.setUserPw(upw);
-				member.setUserName(uname);
-				member.setPhoto(uphoto);
+				member.setUpw(upw);
+				member.setUname(uname);
+				member.setUphoto(uphoto);
 				
 				conn = ConnectionProvider.getConnection();
 				

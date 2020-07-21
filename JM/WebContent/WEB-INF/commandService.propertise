@@ -38,7 +38,7 @@
 /member/memberLogout.do=member.service.MemberLogoutServiceImpl
 
 #판매게시판
-/board/sellerBoard.do=member.service.SellerBoardServiceImpl
+/board/sellerBoard.do=
 #판매글 작성완료
 /board/sellerBoardSuccess.do=member.service.SellerBoardSeccessServiceImpl
 

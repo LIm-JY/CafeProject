@@ -41,6 +41,10 @@ List<Member> list = (List) request.getAttribute("list");
 			<div class="col-md-10">
 				<h1>반갑습니다 ${info.uid} 회원님</h1>
 				<hr>
+				
+				
+				
+				
 				<hr>
 				<%-- ${list} --%>
 				<hr>
@@ -57,6 +61,8 @@ List<Member> list = (List) request.getAttribute("list");
 					연락처 :${member.contactNumber }<br>
 					주소 :${member.address }<br>
 					사진 경로(임시) :${member.photo }<br>
+					
+					<a href="memberEditForm.do?idx=${member.idx}">수정</a>
 <%-- 					사진 :<img src="<c:url value=${member.photo } />" /><br> --%>
 					
 					

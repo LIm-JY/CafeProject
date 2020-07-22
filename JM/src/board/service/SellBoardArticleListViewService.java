@@ -32,7 +32,7 @@ public class SellBoardArticleListViewService implements Service {
 		try {
 			Connection conn = ConnectionProvider.getConnection();
 			articleTotalCount = dao.selectTotalCount(conn);
-			String nowPage = request.getParameter("page");
+			String nowPage = request.getParameter("pNum");
 			
 			if (nowPage != null) {
 				try {
@@ -64,7 +64,8 @@ public class SellBoardArticleListViewService implements Service {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		// articles로 담아서 view로 보낸다.
+		
+		// sortArticles 에 담아서 view로 보낸다.
 		request.setAttribute("sortArticles", sortedArticles);
 		return viewTarget;
 	}

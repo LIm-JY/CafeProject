@@ -53,20 +53,17 @@
 	}
 	%> --%>
 	<c:if test="${!empty loginInfo}">
-	<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberMyPage.do">마이페이지</a></li>
+	<li class="nav-item"><a class="nav-link" href="<c:url value="/member/memberMyPage.do" />">마이페이지</a></li>
 	</c:if>
 	<c:if test="${empty loginInfo}">
-	<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberMyPage.do">마이페이지</a></li>
-	</c:if>
-	<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberGuest.do">방명록(비회원)</a></li>
-	
-	<c:if test="${!empty loginInfo}">
-	<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberList.do">방명록(회원제)</a></li>
+	<li class="nav-item"><a class="nav-link" href="<c:url value="/board/sellerBoard.do" />">판매 게시판</a></li>
 	</c:if>
 	<c:if test="${empty loginInfo}">
-	<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberList.do">방명록(회원제)</a></li>
+	<li class="nav-item"><a class="nav-link" href="<c:url value="/board/buyerBoard.do" />">구매 게시판</a></li>
 	</c:if>
-	<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberListPrint.do">회원목록</a></li>
+	<c:if test="${loginInfo.isadmin eq 1}">
+	<li class="nav-item"><a class="nav-link" href="<c:url value="/member/memberListPrint.do" />">회원목록</a></li>
+	</c:if>
 </ul>
 
 

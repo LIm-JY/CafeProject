@@ -19,7 +19,7 @@
 			<!-- 9단길이의 첫번째 열 -->
 			<div class="col-md-10">
 				<h1>판매게시판</h1>
-				<table class="">
+				<table class="table table-boderless">
 					<tr>
 						<th>번호</th>
 						<th>작성자</th>
@@ -31,26 +31,38 @@
 					<c:if test="${sortArticles ne null}">
 						<tbody>
 							<c:forEach items="${sortArticles.articleList}" var="at">
-								 <tr>
-									<th>${at.idx}</th>
-									<th>${at.user_id}</th>
-									<th>${at.item_category}</th>
-									<th><a href="<c:url value="/board/sellerBoardViewer.do"/>?idx=${at.idx}">${at.title}</a></th>
-									<th>${at.reg_date}</th>
-									<th>${at.view_count}</th>
+								<tr>
+									<td>${at.idx}</td>
+									<td>${at.user_id}</td>
+									<td>${at.item_category}</td>
+									<td>
+										<a href="<c:url value="/board/sellerBoardViewer.do"/>?idx=${at.idx}">${at.title}</a>
+									</td>
+									<td>${at.reg_date}</td>
+									<td>${at.view_count}</td>
 								</tr>
-							</c:forEach>
+							</c:forEach>	
 						</tbody>
 					</c:if>
+					<c:if test="${sortArticles eq null}">
+						<tr>
+							<td>
+								<h1>출력 할 게시물이 없습니다!</h1>
+							</td>
+						</tr>
+					</c:if>
 				</table>
-
-
-
-
-				<c:if test="${sortArticles eq null}">
-					<hr>
-					<h1>출력 할 게시물이 없습니다!</h1>
-					<hr>
+				<c:if test="${sortArticles ne null}">
+					<div style="float: right; padding-right: 20%">
+						<button>글 작성</button>
+					</div>
+					<br>
+					<br>
+					<div style="padding-left: 50%">
+					<c:forEach begin="1" end="${sortArticles.pageTotalCount}" var="num">
+						<a href="sellerBoard.do?pNum=${num}">${num}</a>
+					</c:forEach>
+					</div>
 				</c:if>
 			</div>
 		</div>

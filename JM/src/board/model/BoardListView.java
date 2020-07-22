@@ -5,7 +5,7 @@ import java.util.List;
 public class BoardListView {
 	
 	// 전체 게시물의 개수
-	private int BoardTotalCount;
+	private int boardTotalCount;
 	// 현재 페이지 번호
 	private int currentPageNumber;
 	// 메시지 리스트
@@ -13,23 +13,23 @@ public class BoardListView {
 	// 전체 페이지의 개수
 	private int pageTotalCount;
 	// 페이지 당 표현 게시물의 개수
-	private int BoardCountPerpage;
+	private int boardCountPerPage;
 	// 게시물의 시작 행
 	private int startRow;
 	// 게시물의 마지막 행
 	private int endRow;
 	
 	public BoardListView(
-			int BoardTotalCount, 
+			int boardTotalCount, 
 			int currentPageNumber, 
 			List<Board> articleList,
-			int BoardCountPerpage, 
+			int boardCountPerPage, 
 			int startRow, 
 			int endRow) {
-		this.BoardTotalCount = BoardTotalCount;
+		this.boardTotalCount = boardTotalCount;
 		this.currentPageNumber = currentPageNumber;
 		this.articleList = articleList;
-		this.BoardCountPerpage = BoardCountPerpage;
+		this.boardCountPerPage = boardCountPerPage;
 		this.startRow = startRow;
 		this.endRow = endRow;
 		calTotalPageCount();
@@ -39,11 +39,11 @@ public class BoardListView {
 	
 	private void calTotalPageCount() {
 		
-		if(BoardTotalCount == 0) {
+		if(boardTotalCount == 0) {
 			pageTotalCount=0;
 		} else {
-			pageTotalCount = BoardTotalCount/BoardCountPerpage;
-			if(BoardTotalCount%BoardCountPerpage>0) {
+			pageTotalCount = boardTotalCount/boardCountPerPage;
+			if(boardTotalCount%boardCountPerPage>0) {
 				pageTotalCount++;
 			}
 		}
@@ -51,7 +51,7 @@ public class BoardListView {
 	}
 
 	public int getBoardTotalCount() {
-		return BoardTotalCount;
+		return boardTotalCount;
 	}
 
 	public int getCurrentPageNumber() {
@@ -66,8 +66,8 @@ public class BoardListView {
 		return pageTotalCount;
 	}
 
-	public int getBoardCountPerpage() {
-		return BoardCountPerpage;
+	public int getBoardCountPerPage() {
+		return boardCountPerPage;
 	}
 
 	public int getStartRow() {
@@ -80,13 +80,13 @@ public class BoardListView {
 
 	@Override
 	public String toString() {
-		return "BoardListView [BoardTotalCount=" + BoardTotalCount + ", currentPageNumber=" + currentPageNumber
-				+ ", articleList=" + articleList + ", pageTotalCount=" + pageTotalCount + ", BoardCountPerpage="
-				+ BoardCountPerpage + ", startRow=" + startRow + ", endRow=" + endRow + "]";
+		return "BoardListView [boardTotalCount=" + boardTotalCount + ", currentPageNumber=" + currentPageNumber
+				+ ", articleList=" + articleList + ", pageTotalCount=" + pageTotalCount + ", boardCountPerPage="
+				+ boardCountPerPage + ", startRow=" + startRow + ", endRow=" + endRow + "]";
 	}
 	
 	public boolean isEmpty() {
-		return BoardTotalCount==0;
+		return boardTotalCount==0;
 	}
 	
 	

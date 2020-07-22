@@ -36,16 +36,41 @@ List<Member> list = (List) request.getAttribute("list");
 						<c:if test="${member.userId==info.uid}">
 <%-- 						<c:if test="${member.userId==info.uid && member.userPw==info.upw}"> --%>
 
-					아이디 :${member.userId }<br>
-					비밀번호 :${member.userPw }<br>
-					이름 :${member.userName }<br>
-					닉네임 :${member.userNickname }<br>
-					이메일 :${member.email }<br>
-					연락처 :${member.contactNumber }<br>
-					주소 :${member.address }<br>
-					사진 경로(임시) :${member.photo }<br>
 					
 					
+					
+					<form id="regForm" action="editInfoForm.do" method="post" enctype="multipart/form-data">
+						<table>
+							<tr>
+							<td>아이디</td><td>${member.userId }</td>
+							</tr>
+							<tr>
+							<td>비밀번호</td><td>${member.userPw }</td>
+							</tr>
+							<tr>
+							<td>이름</td><td>${member.userName }</td>
+							</tr>
+							<tr>
+							<td>닉네임</td><td>${member.userNickname }</td>
+							</tr>
+							<tr>
+							<td>이메일</td><td>${member.email }</td>
+							</tr>
+							<tr>
+							<td>연락처</td><td>${member.contactNumber }</td>
+							</tr>
+							<tr>
+							<td>주소</td><td>${member.address }</td>
+							</tr>
+							<tr>
+							<td>사진</td><td>${member.photo }</td>
+							</tr>
+							</tr>
+							<tr>
+							<td><input type="submit" value="수정"></td><td><a href="<%=request.getContextPath() %>/edit.jsp">수정</a></td>
+							</tr>
+						</table>
+					</form>
 					
 						</c:if>
 					</c:forEach>

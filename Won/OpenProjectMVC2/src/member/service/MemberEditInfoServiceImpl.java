@@ -20,7 +20,7 @@ import member.dao.MemberDao;
 import member.model.Member;
 import service.Service;
 
-public class MemberEditServiceImpl implements Service {
+public class MemberEditInfoServiceImpl implements Service {
 
 MemberDao dao;
 	
@@ -123,15 +123,22 @@ MemberDao dao;
 					uphoto = oldFile;
 				}
 				
-				
+//				private String userId;
+//				private String userPw;
+//				private String userName;
+//				private String userNickname;
+//				private String email;
+//				private String contactNumber;
+//				private String address;
+//				private String photo;
 				
 				
 				// 데이터 베이스 저장 
 				Member member = new Member();
 				member.setIdx(idx);
-				member.setUpw(upw);
-				member.setUname(uname);
-				member.setUphoto(uphoto);
+				member.setUserPw(upw);
+				member.setUserName(uname);
+				member.setPhoto(uphoto);
 				
 				conn = ConnectionProvider.getConnection();
 				

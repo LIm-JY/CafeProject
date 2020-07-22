@@ -124,14 +124,12 @@ MemberDao dao;
 				}
 				
 				
-				
-				
 				// 데이터 베이스 저장 
 				Member member = new Member();
 				member.setIdx(idx);
-				member.setUpw(upw);
-				member.setUname(uname);
-				member.setUphoto(uphoto);
+				member.setUserPw(upw);
+				member.setUserName(uname);
+				member.setPhoto(uphoto);
 				
 				conn = ConnectionProvider.getConnection();
 				
@@ -170,7 +168,7 @@ MemberDao dao;
 			
 		}
 		
-		return "/WEB-INF/views/member/edit.jsp";
+		return "/editSuccess.jsp";
 	}
 
 }

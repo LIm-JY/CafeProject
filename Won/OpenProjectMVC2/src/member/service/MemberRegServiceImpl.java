@@ -162,8 +162,9 @@ MemberDao dao;
 			}
 			
 		}
+
 		
-		return "/reg.jsp";
+		return "/regSuccess.jsp";
 	}
 
 }

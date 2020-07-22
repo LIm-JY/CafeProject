@@ -52,11 +52,19 @@
 /board/sellerBoardSuccess.do=member.service.SellerBoardSeccessServiceImpl
 
 #구매게시판
+/board/buyerBoardForm.do=member.service.BuyerBoardFormServiceImpl
 /board/buyerBoard.do=member.service.BuyerBoardServiceImpl
 #구매글 작성완료
-/board/buyerBoard.do=member.service.BuyerBoardSuccessServiceImpl
 
+#구매게시판
+/board/buyerBoardForm.do=member.service.BuyerBoardFormServiceImpl
+/board/buyerBoard.do=member.service.BuyerBoardServiceImpl
 #----------------------------------------------------------------------------------------------07/21추가
 #임시
 /board/temp.do=member.service.TempImpl
 /board/tempService.do=member.service.TempServiceImpl
+#----------------------------------------------------------------------------------------------07/22추가
+#회원 정보 수정 폼
+/member/editInfoForm.do=member.service.MemberEditInfoFormServiceImpl
+#회원 정보 수정 
+/member/editInfo.do=member.service.MemberEditInfoServiceImpl

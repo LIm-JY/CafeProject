@@ -11,7 +11,6 @@ import jdbc.ConnectionProvider;
 import login.LoginInfo;
 import member.dao.MemberDao;
 import member.model.Member;
-import member.model.MemberListView;
 import service.Service;
 
 public class MemberLoginSuccessServiceImpl implements Service {
@@ -27,19 +26,24 @@ MemberDao dao;
 		String upw=request.getParameter("upw");
 		
 		
-		String result="/WEB-INF/views/member/memberLoginFail.jsp";
+		
+		String result="/loginFail.jsp";
 		
 		//---------------------------------------------------------------------------확인
 		//아이디 비밀번호 체크
-		MemberListView listView=(MemberListView)request.getAttribute("listView");
-		System.out.println("전체회원정보확인:"+listView);
-		List<Member> list=null;
-		MemberDao dao=MemberDao.getInstance();
+//		MemberListView listView=(MemberListView)request.getAttribute("listView");
+//		System.out.println("전체회원정보확인:"+listView);
 		Connection conn;
+		
 		Boolean loginCheck=false;
 		
 		try {
+			MemberDao dao=MemberDao.getInstance();
 			conn = ConnectionProvider.getConnection();
+			List <Member> list=dao.selectAllList(conn);
+			System.out.println("입력 아이디:"+uid+", 입력 비밀번호:"+upw);
+			System.out.println(list);
+			System.out.println("전체회원정보확인:"+list);
 			//dao.selectById(conn, uid);
 			list=dao.selectList(conn, 0, dao.selectTotalCount(conn));// startRow: 1
 			//System.out.println("----------------전체회원확인--------------");
@@ -59,6 +63,10 @@ MemberDao dao;
 						loginCheck=true;
 						
 						result="/loginSuccess.jsp";
+						
+						request.setAttribute("loginCheck",loginCheck);
+						
+						request.setAttribute("list", list);
 					}
 				}
 			}
@@ -80,9 +88,8 @@ MemberDao dao;
 		//세션 생성
 		
 		
-		request.setAttribute("loginCheck",loginCheck);
-		
-		request.setAttribute("listView", listView);
+
+//		request.setAttribute("listView", listView);
 //		System.out.println("로그인정보확인:"+info);
 		
 		return result;

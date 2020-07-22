@@ -16,6 +16,8 @@
 font-family: 'Gaegu', cursive;
 }
 </style>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+
 </head>
 <body>
 <div class="wrapper d-flex align-items-stretch">
@@ -56,8 +58,10 @@ Copyright &copy;<script type="937e342de99a9ff8a5348d28-text/javascript">document
 
 <div id="content" class="p-4 p-md-5 pt-5">
 <h2 class="mb-4">Sidebar #02</h2>
+     수정완료
+        
+</script>
 
-	<%@ include file="/WEB-INF/views/member/memberLoginSuccess.jsp" %>
 
 
 </div>

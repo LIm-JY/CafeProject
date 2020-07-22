@@ -38,8 +38,9 @@
 <li>
 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">게시판</a>
 <ul class="collapse list-unstyled" id="pageSubmenu">
- <a href="<%=request.getContextPath() %>/board/sellerBoard.do"/>구매게시판</a>
-   <a href="<%=request.getContextPath() %>/board/buyerBoard.do"/>판매게시판</a>
+ <a href="<%=request.getContextPath() %>/board/buyerBoardForm.do"/>구매게시판</a>
+<%--  <a href="<%=request.getContextPath() %>/board/buyerBoard.do"/>구매게시판</a> --%>
+   <a href="<%=request.getContextPath() %>/board/sellerBoard.do"/>판매게시판</a>
    <a href="<%=request.getContextPath() %>/board/temp.do"/>임시게시판</a>
 </ul>
 </li>

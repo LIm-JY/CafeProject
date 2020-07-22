@@ -1,15 +1,22 @@
+<%@page import="java.util.List"%>
+<%@page import="member.model.Member"%>
+<%@page import="login.LoginInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page trimDirectiveWhitespaces="true" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>INDEX</title>
-
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/default.css">
+	pageEncoding="UTF-8"%>
+	
+	<%
+	LoginInfo info=(LoginInfo)request.getAttribute("info");
+/* 	LoginInfo info=(LoginInfo)session.getAttribute("info"); */
+	
+	Member member=(Member)request.getAttribute("member");
+	List<Member> list=(List)request.getAttribute("list");
+	request.setAttribute("info",info);
+	request.setAttribute("member",member);
+	request.setAttribute("list",list);
+	
+	%>
+<html lang="ko">
+<meta charset="utf-8">
 
 <style>
 	.check_ok {
@@ -23,54 +30,37 @@
 	}
 </style>
 </head>
-<body>
-
-	<%@ include file="/WEB-INF/views/include/header.jsp" %>
-
-	<div>
-		<h1 class="subtitle">회원 가입</h1>
+	<!-- private String userId;
+	private String title;
+	private String itemCategory;
+	private String content;
+	private String viewCount;
+	private String fileContentAddr; -->
+	
+	
+    <div>
+		<h1 class="subtitle">글</h1>
 		<hr>
-		<form id="regForm" action="memberReg.do" method="post" enctype="multipart/form-data">
+		<form id="regForm" action="buyerBoard.do" method="post">
+<!-- 		<form id="regForm" action="buyerBoard.do" method="post" enctype="multipart/form-data"> -->
 			<table>
+			
 				<tr>
-					<td>아이디(email)</td>
-					<td> <input type="email" name="uid" id="uid" >
-						 <span  id="checkmsg"></span>
-						 <input type="checkbox" name="idchk" id="idchk">
-					 </td>
+					<th>아이디 </th>
+					<td> ${info.uid}<input type="hidden" name="uid" value="${info.uid}"> </td>
 				</tr>
 				<tr>
-					<td>비밀번호</td>
-					<td> <input type="password" name="upw" required> </td>
+					<td>제목</td>
+					<td> <input type="text" name="title" required> </td>
 				</tr>
 				<tr>
-					<td>이름</td>
-					<td> <input type="text" name="uname" required> </td>
-				</tr>
-				<tr>
-					<td>닉네임</td>
-					<td> <input type="text" name="nickname" required> </td>
-				</tr>
-				<tr>
-					<td>이메일</td>
-					<td> <input type="text" name="email" required> </td>
-				</tr>
-				<tr>
-					<td>연락처</td>
-					<td> <input type="text" name="contact" required> </td>
-				</tr>
-				<tr>
-					<td>주소</td>
-					<td> <input type="text" name="address" required> </td>
-				</tr>
-				<tr>
-					<td>사진</td>
-					<td> <input type="file" name="photo"> </td>
+					<td>내용</td>
+					<td><textarea name="content"col="20" row="20" required></textarea></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td> 
-						<input type="submit" name="회원가입">
+						<input type="submit" name="작성">
 						<input type="reset">
 					</td>
 				</tr>
@@ -78,9 +68,6 @@
 		</form>
 	</div>
 
-	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
-</body>
-</html>
 <script>
 	
 	$(document).ready(function(){

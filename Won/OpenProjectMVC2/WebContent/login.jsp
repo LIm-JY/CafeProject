@@ -59,6 +59,7 @@ Copyright &copy;<script type="937e342de99a9ff8a5348d28-text/javascript">document
 메인화면
 
 	<%@ include file="/WEB-INF/views/member/memberLogin.jsp" %>
+	<%@ include file="/kakaoLogin.jsp" %>
 
 
 </div>

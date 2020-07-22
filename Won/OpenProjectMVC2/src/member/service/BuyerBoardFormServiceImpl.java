@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import member.dao.MemberDao;
 import service.Service;
 
-public class BuyerBoardSucccessServiceImpl implements Service {
+public class BuyerBoardFormServiceImpl implements Service {
 
 MemberDao dao;
 	
@@ -14,6 +14,8 @@ MemberDao dao;
 	public String getViewPage(
 			HttpServletRequest request, 
 			HttpServletResponse response) {
+//		title content
+		
 		
 		// view 로 전달할 결과 데이터
 //		MemberListView listView = null;
@@ -78,7 +80,8 @@ MemberDao dao;
 //		
 //		
 //		request.setAttribute("listView", listView);
-		return "/WEB-INF/views/board/messageWrite.jsp";
+		return "/buyForm.jsp";
+
 	}
 
 }

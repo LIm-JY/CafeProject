@@ -13,26 +13,28 @@
 	<div class="container-fluid">
 		<div class="row">
 			<!-- 3단길이의 첫번째 열 -->
-			<div class="col-md-2">
+			<div class="col-md-3">
 				<%@ include file="/WEB-INF/views/include/header.jsp"%>
 			</div>
 			<!-- 9단길이의 첫번째 열 -->
-			<div class="col-md-10">
+			<div class="col-md-9">
 				<h1>판매게시판</h1>
-				<table class="table table-boderless">
-					<tr>
-						<th>번호</th>
-						<th>작성자</th>
-						<th>대분류</th>
-						<th>제목</th>
-						<th>작성일</th>
-						<th>조회수</th>
-					</tr>
+				<table class="table table-borderless">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">번호</th>
+							<th scope="col">작성자</th>
+							<th scope="col">대분류</th>
+							<th scope="col">제목</th>
+							<th scope="col">작성일</th>
+							<th scope="col">조회수</th>
+						</tr>
+					</thead>
 					<c:if test="${sortArticles ne null}">
 						<tbody>
 							<c:forEach items="${sortArticles.articleList}" var="at">
 								<tr>
-									<td>${at.idx}</td>
+									<th scope="row">${at.idx}</th>
 									<td>${at.user_id}</td>
 									<td>${at.item_category}</td>
 									<td>
@@ -54,7 +56,7 @@
 				</table>
 				<c:if test="${sortArticles ne null}">
 					<div style="float: right; padding-right: 20%">
-						<button>글 작성</button>
+						<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/member/'">거래글 등록하기</button>
 					</div>
 					<br>
 					<br>

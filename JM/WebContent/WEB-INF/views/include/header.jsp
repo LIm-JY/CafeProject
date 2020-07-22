@@ -2,20 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<form method="post" target="">
-	<table class="table table-boderless">
-		<tr>
-			<td>아이디</td>
-			<td><input type="text" required="required" name="user_id"></td>
-			
-		</tr>
-		<tr>
-			<td>비밀번호</td>
-			<td><input type="password" required="required" name="pass_wd"></td>
-		</tr>
-		<tr>
-			<td><input type="submit"></td>
-			<td><input type="reset"></td>
-		</tr>
-	</table>
+<form method="post" target="/member/memberLoginSuccess.do">
+	<div>
+		<div>아 이 디 : <input type="text" required="required" name="uid"></div>
+		<div>비밀번호 : <input type="password" required="required" name="upw"></div>
+	</div>
+	<div>
+		<input class="btn btn-primary" style="margin-left: 65px; margin-top: 20px" type="submit" value="가입하기">
+		<input class="btn btn-secondary" style="margin-left: 20px; margin-top: 20px" type="reset" value="입력취소">
+	</div>
 </form>

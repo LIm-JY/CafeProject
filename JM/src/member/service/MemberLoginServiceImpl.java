@@ -15,7 +15,6 @@ MemberDao dao;
 			HttpServletRequest request, 
 			HttpServletResponse response) {
 		
-		
 		return "/WEB-INF/views/member/memberLogin.jsp";
 	}
 

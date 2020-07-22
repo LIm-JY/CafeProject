@@ -114,7 +114,7 @@ public class BuyerBoardDAO {
 
 		List<Board> articleList = new ArrayList<Board>();
 
-		String sql = "select * from project.buyboard order by idx limit ?, ?";
+		String sql = "SELECT * FROM project.buyboard ORDER BY idx DESC limit ?, ?";
 
 		try {
 			pstmt = conn.prepareStatement(sql);

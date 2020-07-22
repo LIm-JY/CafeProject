@@ -40,9 +40,7 @@ MemberDao dao;
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			//dao.selectById(conn, uid);
 			list=dao.selectList(conn, 0, dao.selectTotalCount(conn));// startRow: 1
-			//System.out.println("----------------전체회원확인--------------");
 			for (Member member : list) {
 				//System.out.println(member);
 				if(member.getUserId().trim().equals(uid.trim())) {//아이디 일치
@@ -68,23 +66,12 @@ MemberDao dao;
 			e.printStackTrace();
 		}
 		
-		
-//		List<Member> list=listView.getMemberList();
-//		for(Member m:list) {
-//			System.out.println("멤버정보확인:"+m);
-//		}
-		
-		
 		//회원 로그인 정보 객체 생성
 		
 		//세션 생성
 		
-		
-		request.setAttribute("loginCheck",loginCheck);
-		
+		request.setAttribute("loginCheck",loginCheck);		
 		request.setAttribute("listView", listView);
-//		System.out.println("로그인정보확인:"+info);
-		
 		return result;
 	}
 

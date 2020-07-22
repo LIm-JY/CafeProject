@@ -21,23 +21,6 @@ public class SellBoardArticleWriteService implements Service {
 
 	@Override
 	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
-		String file = request.getParameter("file_content");
-		
-		try {
-			conn = ConnectionProvider.getConnection();
-			
-			board.setUser_id(request.getParameter("user_id"));
-			board.setTitle(request.getParameter("title"));
-			board.setItem_category(request.getParameter("item_category"));
-			board.setContent(request.getParameter("content"));
-			if (file != null) {
-				board.setFile_content_addr(file);
-			}
-			
-			resultCnt = dao.insertBoard(conn, board);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 		
 		request.setAttribute("writeResult", resultCnt);
 		return viewTarget;

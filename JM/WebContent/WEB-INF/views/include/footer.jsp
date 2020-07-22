@@ -6,7 +6,7 @@
  
 <div class="container">
   <div class="panel panel-success">
-    <div class="panel-heading">Open Project @2020</div>
+    <div class="panel-heading">Team 404 not found</div>
   </div>
 </div>
 

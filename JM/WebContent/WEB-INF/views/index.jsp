@@ -19,11 +19,11 @@
 	<div class="container-fluid">
 		<div class="row">
 			<!-- 3단길이의 첫번째 열 -->
-			<div class="col-md-2">
+			<div class="col-md-3">
 				<%@ include file="/WEB-INF/views/include/header.jsp"%>
 			</div>
 			<!-- 9단길이의 첫번째 열 -->
-			<div class="col-md-5">
+			<div class="col-md-4">
 				<h1>판매게시판</h1>
 				<table class="table table-sm">
 					<tr>
@@ -60,7 +60,7 @@
 				</table>
 				
 			</div>
-			<div class="col-md-5">
+			<div class="col-md-4">
 				<h1>구매게시판</h1>
 				<table class="table table-sm">
 					<tr>

@@ -25,11 +25,11 @@
   <div class="container-fluid">
     <div class="row">
      <!-- 3단길이의 첫번째 열 -->
-      <div class="col-md-2">
+      <div class="col-md-3">
      <%@ include file="/WEB-INF/views/include/header.jsp" %>
       </div>
       <!-- 9단길이의 첫번째 열 -->
-      <div class="col-md-10">
+      <div class="col-md-9">
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
       <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
       <p> Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,</p>

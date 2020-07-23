@@ -1,8 +1,9 @@
 <%@page import="member.model.MemberListView"%>
 <%@page import="login.LoginInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
 /*     	LoginInfo info=(LoginInfo)request.getAttribute("info");
  */    	
  		String uid=(String)request.getParameter("uid");
@@ -19,27 +20,36 @@
     	
     	
     %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/default.css">
 
-</head>
-<body>
+<!doctype html>
+<html lang="ko">
+  <head>
+  	<title>Sidebar 03</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    	<%@ include file="/WEB-INF/views/include/navigationTest.jsp" %>
-     
-  <div class="container-fluid">
-    <div class="row">
-     <!-- 3단길이의 첫번째 열 -->
-      <div class="col-md-2">
-     <%@ include file="/WEB-INF/views/include/header.jsp" %>
-      </div>
-      <!-- 9단길이의 첫번째 열 -->
-      <div class="col-md-10">
-	<%
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="<%=request.getContextPath() %>/sidebar-03/css/style.css">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="active">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+        </div>
+				<%@ include file="/sideMenu.jsp" %>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4"><a href="${pageContext.request.contextPath}/index2.html">홈으로</a></h2>
+        <%
 	if(loginCheck){//loginCheck==true
 		session.setAttribute("info",new LoginInfo(uid,upw));//세션 생성
 		MemberListView listView=(MemberListView)request.getAttribute("listView");
@@ -49,25 +59,22 @@
 	<h1>반갑습니다 ${info.uid} 회원님</h1><hr>
 	<h1>로그인 완료</h1>
 	<%
-	}else{
-	%>
+	}else{	
+	%> 
+	<!-- <script>
+	
+	alert("회원정보가 일치하지 않습니다");
+	</script> -->
 	<hr>
 	<h1>로그인 실패</h1>
 	${listView.memberList}
 <%} %>
       </div>
      </div>
-	
-	<!-- <div class="container">
 
-		index
-	</div> -->
-
-	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
-
-
-
-	<div>
-
-</body>
+    <script src="<%=request.getContextPath() %>/sidebar-03/js/jquery.min.js"></script>
+    <script src="<%=request.getContextPath() %>/sidebar-03/js/popper.js"></script>
+    <script src="<%=request.getContextPath() %>/sidebar-03/js/bootstrap.min.js"></script>
+    <script src="<%=request.getContextPath() %>/sidebar-03/js/main.js"></script>
+  </body>
 </html>

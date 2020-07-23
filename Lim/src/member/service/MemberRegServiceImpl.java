@@ -127,7 +127,7 @@ MemberDao dao;
 				member.setUserNickname(nickname);
 				member.setEmail(email);
 				member.setContactNumber(contact);
-				member.setAddress(address+addr2+addr3);
+				member.setAddress(address+"_"+addr2+"_"+addr3);
 				member.setPhoto(photo);
 				
 				conn = ConnectionProvider.getConnection();
@@ -173,12 +173,3 @@ MemberDao dao;
 	}
 
 }
-
-
-
-
-
-
-
-
-

@@ -27,43 +27,40 @@ List<Member> list = (List) request.getAttribute("list");
 	href="<%=request.getContextPath()%>/css/default.css">
 
 </head>
+
+<style>
+	#photo{
+		width: 100px;
+		height: 100px;
+	}
+</style>
+
 <body>
 
-	<%@ include file="/WEB-INF/views/include/navigationTest.jsp"%>
-
-	<div class="container-fluid">
-		<div class="row">
-			<!-- 3단길이의 첫번째 열 -->
-			<div class="col-md-2">
-				<%@ include file="/WEB-INF/views/include/header.jsp"%>
-			</div>
-			<!-- 9단길이의 첫번째 열 -->
-			<div class="col-md-10">
+	
 				<h1>반갑습니다 ${info.uid} 회원님</h1>
 				<hr>
 				
 				
 				
 				
-				<hr>
-				<%-- ${list} --%>
-				<hr>
+				
 				<c:if test="${not empty list }">
 					<c:forEach items="${list}" var="member">
 						<c:if test="${member.userId==info.uid}">
 <%-- 						<c:if test="${member.userId==info.uid && member.userPw==info.upw}"> --%>
-
+					<h3>사진: <img id="photo"  alt="프사 " src="<c:url value="${member.photo}"/>"><br>
 					아이디 :${member.userId }<br>
 					비밀번호 :${member.userPw }<br>
 					이름 :${member.userName }<br>
 					닉네임 :${member.userNickname }<br>
 					이메일 :${member.email }<br>
 					연락처 :${member.contactNumber }<br>
-					주소 :${member.address }<br>
-					사진 경로(임시) :${member.photo }<br>
+					주소 :${member.address }<br></h3>
 					
-					<a href="memberEditForm.do?idx=${member.idx}">수정</a>
-<%-- 					사진 :<img src="<c:url value=${member.photo } />" /><br> --%>
+					
+					<h2><a href="memberEditForm.do?idx=${member.idx}">개인정보 수정</a></h2>
+ 					 
 					
 					
 
@@ -197,18 +194,17 @@ List<Member> list = (List) request.getAttribute("list");
 				+ ", address=" + address + ", photo=" + photo + "]";
 	} -->
 
-			</div>
-		</div>
+			
 
 		<!-- <div class="container">
 
 		index
 	</div> -->
 
-		<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+		
 
 
 
-		<div>
+		
 </body>
 </html>

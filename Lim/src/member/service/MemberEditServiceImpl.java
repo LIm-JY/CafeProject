@@ -90,7 +90,17 @@ public class MemberEditServiceImpl implements Service {
 						} else if (paramName.equals("address")) {
 							// 이전 파일은 새로운 파일이 없을때 업데이트가 되도록합니다.
 							address = paramValue;
-						} else if (paramName.equals("oldFile")) {
+							
+						} else if (paramName.equals("addr2")) {
+							// 이전 파일은 새로운 파일이 없을때 업데이트가 되도록합니다.
+							addr2 = paramValue;
+							
+						} else if (paramName.equals("addr3")) {
+							// 이전 파일은 새로운 파일이 없을때 업데이트가 되도록합니다.
+							addr3 = paramValue;
+							
+						}
+						else if (paramName.equals("oldFile")) {
 							// 이전 파일은 새로운 파일이 없을때 업데이트가 되도록합니다.
 							oldFile = paramValue;
 						}
@@ -146,7 +156,7 @@ public class MemberEditServiceImpl implements Service {
 				member.setUserNickname(userNickname);
 				member.setEmail(email);
 				member.setContactNumber(contactNumber);
-				member.setAddress(address+addr2+addr3);
+				member.setAddress(address+"_"+addr2+"_"+addr3);
 				member.setPhoto(photo);
 				
 

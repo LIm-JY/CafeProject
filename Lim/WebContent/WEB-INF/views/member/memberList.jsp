@@ -1,5 +1,4 @@
 <%@page import="member.model.MemberListView"%>
-<%@page import="javax.swing.text.html.ListView"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,34 +6,35 @@
 	MemberListView listView=(MemberListView)request.getAttribute("listView");
 	request.setAttribute("listView", listView);
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>회원가입</title>
+<!doctype html>
+<html lang="ko">
+  <head>
+  	<title>Sidebar 03</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link rel="stylesheet" href="<c:url value="/css/default.css" />">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="<%=request.getContextPath() %>/sidebar-03/css/style.css">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="active">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+        </div>
+				<%@ include file="/sideMenu.jsp" %>
+    	</nav>
 
-<style>
-	td>img{
-		width :50px;
-		height : 50px;
-	}
-</style>
-</head>
-<body>
-
-<%@ include file="/WEB-INF/views/include/navigationTest.jsp" %>
-     
-  <div class="container-fluid">
-    <div class="row">
-     <!-- 3단길이의 첫번째 열 -->
-      <div class="col-md-2">
-     <%@ include file="/WEB-INF/views/include/header.jsp" %>
-      </div>
-      <!-- 9단길이의 첫번째 열 -->
-      <div class="col-md-10">
-      <div>
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4"><a href="${pageContext.request.contextPath}/index.html">홈으로</a></h2>
+        <div>
 		<h1 class="subtitle">회원 리스트</h1>
 
 		<c:if test="${not empty listView  }">
@@ -98,24 +98,15 @@
 
 		</c:if>
 	</div>
+        
       </div>
-     </div>
-	
-	<!-- <div class="container">
+		</div>
 
-		index
-	</div> -->
-
-
-
-	
-
-	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
-</body>
-</html>
-
-
-<script>
+    <script src="<%=request.getContextPath() %>/sidebar-03/js/jquery.min.js"></script>
+    <script src="<%=request.getContextPath() %>/sidebar-03/js/popper.js"></script>
+    <script src="<%=request.getContextPath() %>/sidebar-03/js/bootstrap.min.js"></script>
+    <script src="<%=request.getContextPath() %>/sidebar-03/js/main.js"></script>
+  	<script>
 	function memberDel(idx){
 		if(confirm('선택하신 회원 정보를 삭제하시겠습니까?')){
 			location.href = 'memberDelete.do?idx='+idx;
@@ -123,9 +114,5 @@
 		
 	}
 </script>
-
-
-
-
-
-
+  </body>
+</html>

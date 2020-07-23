@@ -132,25 +132,12 @@ public class FrontController extends HttpServlet{
 			service = new NullServiceImpl();
 		}
 		
-
-//		if(type.equals("/greeting") ) {
-//			service = new GreetingServiceImpl();
-//		} else if(type.equals("/date")) {
-//			service = new DateServiceImpl();
-//		} else if(type.equals("/") || type.equals("/index") ) {
-//			service = new IndexServiceImpl();
-//		} else {
-//			service = new NullServiceImpl();
-//		}
-		
 		String page = service.getViewPage(request, response);
 		
 	
 		// 5. 포워딩
 		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
 		dispatcher.forward(request, response);
-		
-		
 	}
 
 

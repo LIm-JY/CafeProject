@@ -17,7 +17,7 @@
 				<%@ include file="/WEB-INF/views/include/header.jsp"%>
 			</div>
 			<!-- 9단길이의 첫번째 열 -->
-			<div class="col-md-9">
+			<div class="col-md-8">
 				<h1>판매게시판</h1>
 				<table class="table table-borderless">
 					<thead class="thead-dark">
@@ -56,14 +56,16 @@
 				</table>
 				<c:if test="${sortArticles ne null}">
 					<div style="float: right; padding-right: 20%">
-						<button type="button" class="btn btn-primary btn-sm" onclick="location.href='/member/'">거래글 등록하기</button>
+						<button type="button" class="btn btn-primary btn-sm" onclick="location.href='<c:url value="/board/sellerArticleWriteForm.do" />'">거래글 등록하기</button>
 					</div>
 					<br>
 					<br>
 					<div style="padding-left: 50%">
+						<ul class="pagination">
 					<c:forEach begin="1" end="${sortArticles.pageTotalCount}" var="num">
-						<a href="sellerBoard.do?pNum=${num}">${num}</a>
+							<li class="page-item"><a href="sellerBoard.do?pNum=${num}">${num}</a></li>
 					</c:forEach>
+						</ul>
 					</div>
 				</c:if>
 			</div>

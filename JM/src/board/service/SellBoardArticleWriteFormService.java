@@ -12,10 +12,12 @@ public class SellBoardArticleWriteFormService implements Service{
 		String url = null;
 		String memberInfo = request.getParameter("memberInfo");
 		
-		if (memberInfo != null) {
-			url = "/WEB-INF/board/sellerBoardArticleWriteForm.jsp";
+		// if (memberInfo != null) { 세션 없으면 당연히 원래는 튕겨내야 함.
+		if (memberInfo == null) {
+			url = "/WEB-INF/views/board/sellerArticleWriteForm.jsp";
 		} else {
-			url = "/WEB-INF/index.jsp";
+			System.out.println("세션 없음!");
+			url = "/index.do";
 		}
 		return url;
 	}

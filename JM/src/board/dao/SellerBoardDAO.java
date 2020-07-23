@@ -24,13 +24,14 @@ public class SellerBoardDAO {
 		int resultCnt = 0;
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO project.sellboard (user_id,title,item_category,content,file_content_addr) VALUES (?,?,?,?,?,?)";
+		String sql =  "INSERT INTO project.sellboard (user_id,title,item_category,content,file_content_addr) VALUES (?,?,?,?,?)";
 
 		try {
 			String fileAddr = board.getFile_content_addr();
 			
 			if (fileAddr == null) {
-				fileAddr = "no_file";
+				fileAddr = "noFile";
+				sql =  "INSERT INTO project.sellboard (user_id,title,item_category,content) VALUES (?,?,?,?)";
 			}
 			
 			pstmt = conn.prepareStatement(sql);
@@ -38,7 +39,9 @@ public class SellerBoardDAO {
 			pstmt.setString(2, board.getTitle());
 			pstmt.setString(3, board.getItem_category());
 			pstmt.setString(4, board.getContent());
-			pstmt.setString(5, fileAddr);
+			if (fileAddr != null) {
+				pstmt.setString(5, fileAddr);
+			}
 
 			resultCnt = pstmt.executeUpdate();
 

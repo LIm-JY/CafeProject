@@ -28,7 +28,7 @@
 					<script type="text/javascript">
 						console.log(${deleteResult} + " 게시글 작성이 정상적으로 되었습니다.");
 					</script>
-					<c:redirect url="<c:url value="/board/sellerBoard.do"/>"/>
+					<c:redirect url="/board/sellerBoard.do"/>
 				</c:if>
 			</div>
 		</div>

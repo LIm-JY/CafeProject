@@ -20,7 +20,7 @@ public class SellBoardArticleDeleteService implements Service {
 	@Override
 	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
 		String getIdx = request.getParameter("idx");
-		int convIdx = 0;
+		int idx = 0;
 		String getUid = request.getParameter("user_id");
 		String getUpw = request.getParameter("user_pw");
 		String findPw = null;
@@ -28,16 +28,17 @@ public class SellBoardArticleDeleteService implements Service {
 		Connection conn = null;
 
 		if (getIdx != null) {
-			convIdx = Integer.parseInt(getIdx);
+			idx = Integer.parseInt(getIdx);
+			System.out.println("idx : " + idx);
 			findPw = memberDao.findPasswordById(conn, getUid);
-			if (findPw.equals(getUpw)) {
+			// if (findPw.equals(getUpw)) { 원래는 비밀번호 확인 해야 함.
 				try {
 					conn = ConnectionProvider.getConnection();
-					deleteResult = dao.articleDelete(conn, convIdx);
+					deleteResult = dao.articleDelete(conn, idx);
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-			}
+			//}
 		}
 
 		request.setAttribute("deleteResult", deleteResult);

@@ -14,11 +14,11 @@
 	<div class="container-fluid">
 		<div class="row">
 			<!-- 3단길이의 첫번째 열 -->
-			<div class="col-md-2">
+			<div class="col-md-3">
 				<%@ include file="/WEB-INF/views/include/header.jsp"%>
 			</div>
 			<!-- 9단길이의 첫번째 열 -->
-			<div class="col-md-10">
+			<div class="col-md-8">
 				<c:if test="${deleteResult eq 0}">
 					<h1>게시글 삭제가 <font style="color: red;">실패</font>하였습니다.</h1>
 					<h3>상세 사유는 관리자에게 문의해주세요.</h3>
@@ -30,6 +30,8 @@
 					</script>
 					<c:redirect url="<c:url value="/board/sellerBoard.do"/>"/>
 				</c:if>
+			</div>
+			<div class="col-md-1">
 			</div>
 		</div>
 	</div>

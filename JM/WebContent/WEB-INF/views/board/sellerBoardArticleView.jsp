@@ -66,7 +66,7 @@
 </body>
 <script type="text/javascript">
 	function deleteArticle(){
-			location.href = "<c:url value="/board/deleteArticle.do?idx=${article.idx}"/>";
+			location.href = "<c:url value="/board/sellerArticleDeleteResult.do?idx=${article.idx}"/>";
 	}
 	
 	function modifyArticle(){
